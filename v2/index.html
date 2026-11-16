@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJLO 1690AM — Montréal after dark (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0D0B12; --ink2:#15121C; --ink3:#1E1A27; --line:#2C2636;
+  --paper:#F3EEE6; --paper2:#E8E0D3; --text:#F3EEE6; --dim:#B3ACBD; --faint:#8F889B;
+  --coral:#F26B47; --burgundy:#912338; --lime:#D7FF3A;
+  --display:'Syne',system-ui,sans-serif; --body:'Instrument Sans',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--body);padding-bottom:86px;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:var(--coral);text-decoration:none}a:hover{color:#FF8F70}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:28px;padding-right:28px}
+.mono{font-family:var(--mono)}
+.concept{background:var(--burgundy);color:#FBE9EC;font-size:12px;font-weight:600;text-align:center;padding:7px 16px;letter-spacing:.2px}
+
+/* header */
+header .bar{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding-top:16px;padding-bottom:16px}
+header img{height:44px;display:block}
+nav.main{display:flex;gap:22px;flex-wrap:wrap;flex:1 1 520px}
+nav.main a{color:var(--text);font-weight:600;font-size:14px;display:flex;flex-direction:column;line-height:1.15}
+nav.main a small{font-family:var(--mono);font-size:10px;color:var(--faint);font-weight:400;letter-spacing:.5px}
+nav.main a:hover{color:var(--coral)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:700;font-size:14px;padding:12px 20px;border:0;cursor:pointer;min-height:44px}
+.btn.coral{background:var(--coral);color:var(--ink)}.btn.coral:hover{color:var(--ink);background:#FF8460}
+.btn.line{border:1.5px solid var(--text);color:var(--text);background:transparent}
+.btn.ink{background:var(--ink);color:var(--paper)}
+
+/* hero */
+.hero{position:relative;padding-top:28px;padding-bottom:20px}
+.ghost{position:absolute;left:-10px;right:0;top:0;font-family:var(--display);font-weight:800;font-size:clamp(140px,26vw,380px);line-height:.8;letter-spacing:-8px;color:transparent;-webkit-text-stroke:1.5px #2E2738;white-space:nowrap;pointer-events:none;user-select:none;z-index:0}
+.herogrid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;min-height:540px}
+.over{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;color:var(--dim)}
+.livechip{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:var(--ink);font-family:var(--body);font-weight:800;font-size:12px;letter-spacing:1.6px;padding:6px 12px;border-radius:999px}
+.livechip i{width:8px;height:8px;border-radius:4px;background:var(--ink);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.2}}
+.showname{font-family:var(--display);font-weight:800;font-size:clamp(46px,7.4vw,108px);line-height:.92;letter-spacing:-2.5px;margin:18px 0 14px;text-wrap:balance}
+.showmeta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.tag{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--dim)}
+.np{display:flex;align-items:center;gap:14px;background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:14px 16px;max-width:560px}
+.np .lbl{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:1px}
+.eq{display:flex;gap:3px;align-items:flex-end;height:26px;width:34px;flex:0 0 auto}
+.eq b{display:block;width:5px;background:var(--lime);border-radius:2px;height:20%;transition:height .2s}
+body.playing .eq b{animation:eq 900ms infinite ease-in-out}
+.eq b:nth-child(2){animation-delay:-.3s!important}.eq b:nth-child(3){animation-delay:-.6s!important}.eq b:nth-child(4){animation-delay:-.15s!important}.eq b:nth-child(5){animation-delay:-.45s!important}
+@keyframes eq{0%,100%{height:20%}50%{height:100%}}
+.ctrl{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.seg{display:flex;gap:4px;background:var(--ink2);border:1px solid var(--line);padding:4px;border-radius:999px;flex-wrap:wrap}
+.seg button{border:0;cursor:pointer;font:600 13px var(--body);padding:9px 14px;border-radius:999px;min-height:38px;background:transparent;color:var(--dim)}
+.seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+
+/* turntable */
+.deck{position:relative;aspect-ratio:1/1;width:100%;max-width:500px;justify-self:center}
+.plinth{position:absolute;inset:0;border-radius:28px;background:linear-gradient(145deg,#1C1824,#121019);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.vinyl{position:absolute;left:7%;top:7%;width:78%;aspect-ratio:1/1;border-radius:50%;
+  background:repeating-radial-gradient(circle at 50% 50%,#121014 0 2px,#1b1820 2px 3px),radial-gradient(circle,#000 0 30%,transparent 31%);
+  box-shadow:inset 0 0 0 6px #0a090c,0 10px 30px rgba(0,0,0,.6);animation:spin 3.2s linear infinite;animation-play-state:paused}
+.vinyl::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 12%,rgba(255,255,255,.08) 16%,transparent 22% 60%,rgba(255,255,255,.06) 64%,transparent 70%)}
+body.playing .vinyl{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.label{position:absolute;left:31%;top:31%;width:38%;aspect-ratio:1/1;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;z-index:2}
+.label img{width:72%;height:auto}
+.label::after{content:"";position:absolute;width:7%;aspect-ratio:1/1;border-radius:50%;background:var(--ink)}
+.arm{position:absolute;right:6%;top:6%;width:44%;height:60%;z-index:3;pointer-events:none;transform-origin:85% 12%;transform:rotate(-18deg);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+body.playing .arm{transform:rotate(4deg)}
+.playbig{position:absolute;right:7%;bottom:7%;width:96px;height:96px;border-radius:50%;border:0;cursor:pointer;background:var(--lime);display:flex;align-items:center;justify-content:center;z-index:4;box-shadow:0 10px 30px rgba(215,255,58,.25)}
+.playbig:hover{transform:scale(1.04)}
+.freq{position:absolute;left:7%;bottom:7%;z-index:4;font-family:var(--mono);font-size:12px;color:var(--faint);line-height:1.5}
+.freq b{display:block;font-family:var(--display);font-size:30px;color:var(--text);letter-spacing:-1px}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--ink2)}
+.marquee div{display:inline-block;padding:14px 0;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.3px;animation:scroll 40s linear infinite}
+.marquee span{margin:0 22px}.marquee em{font-style:normal;color:var(--coral)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee div,.vinyl,body.playing .eq b{animation:none}}
+
+/* sections */
+section.s{padding-top:72px}
+.shead{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.shead h2{font-family:var(--display);font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.95;letter-spacing:-1.5px;margin:0}
+.shead h2 small{display:block;font-family:var(--mono);font-weight:400;font-size:13px;letter-spacing:.5px;color:var(--faint);margin-bottom:10px}
+.days{display:flex;gap:6px;flex-wrap:wrap}
+.days button{border:1px solid var(--line);cursor:pointer;background:transparent;color:var(--dim);font:600 13px var(--body);padding:8px 12px;border-radius:12px;min-width:58px;min-height:48px;line-height:1.1}
+.days button small{display:block;font-family:var(--mono);font-size:10px;color:var(--faint);font-weight:400}
+.days button[aria-pressed="true"]{background:var(--coral);border-color:var(--coral);color:var(--ink)}
+.days button[aria-pressed="true"] small{color:var(--ink)}
+
+/* dial */
+.dialwrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center}
+.dial svg{width:100%;height:auto;max-width:560px;display:block;margin:0 auto}
+.dial path.arc{cursor:pointer;transition:opacity .2s}
+.dial path.arc:hover{opacity:.8}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+.legend span{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:5px 10px}
+.legend b{width:9px;height:9px;border-radius:50%;display:inline-block}
+.list{max-height:520px;overflow:auto;border-top:1px solid var(--line)}
+.slot{display:grid;grid-template-columns:92px 6px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 6px;border-bottom:1px solid var(--line);color:var(--text)}
+.slot:hover{background:var(--ink2);color:var(--text)}
+.slot .t{font-family:var(--mono);font-size:13px;color:var(--dim)}
+.slot .c{height:30px;border-radius:3px}
+.slot .n{font-weight:600;font-size:16px}
+.slot .g{font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:uppercase}
+.slot.live{background:var(--ink3)}
+.slot .lv{font-family:var(--body);font-weight:800;font-size:10px;letter-spacing:1.2px;color:var(--ink);background:var(--coral);padding:3px 7px;border-radius:5px;margin-left:8px;vertical-align:2px}
+
+/* sleeves */
+.sleeves{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px}
+.sleeve{color:var(--text);display:flex;flex-direction:column;gap:10px}
+.sleeve .art{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.45);transition:transform .25s}
+.sleeve:hover .art{transform:translateY(-4px) rotate(-1deg)}
+.sleeve .art svg{width:100%;height:100%;display:block}
+.sleeve .art .st{position:absolute;left:12px;right:12px;bottom:12px;font-family:var(--display);font-weight:800;font-size:22px;line-height:1;letter-spacing:-.5px;color:var(--ink);background:var(--paper);padding:8px 10px;border-radius:4px;text-wrap:balance}
+.sleeve .art .tm{position:absolute;left:12px;top:12px;font-family:var(--mono);font-size:11px;background:var(--ink);color:var(--paper);padding:4px 8px;border-radius:4px}
+.sleeve .sub{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.sleeve:hover{color:var(--text)}
+
+/* cassettes */
+.tapes{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.tape{position:relative;background:#E9E1D2;color:var(--ink);border-radius:14px;padding:14px;aspect-ratio:1.6/1;display:flex;flex-direction:column;box-shadow:0 12px 26px rgba(0,0,0,.4)}
+.tape:hover{color:var(--ink);transform:translateY(-3px)}
+.tape .lab{background:var(--paper);border-radius:6px;padding:8px 10px;border-top:6px solid var(--coral)}
+.tape .lab b{display:block;font-family:var(--display);font-size:17px;line-height:1.1}
+.tape .lab span{font-family:var(--mono);font-size:11px;color:#4B4452}
+.tape .win{margin:10px auto 0;width:64%;height:42%;background:#2A2430;border-radius:30px;display:flex;align-items:center;justify-content:space-between;padding:0 10%}
+.tape .win i{width:30%;aspect-ratio:1/1;border-radius:50%;background:repeating-conic-gradient(#E9E1D2 0 10deg,#2A2430 10deg 30deg);border:3px solid #E9E1D2}
+.tape:hover .win i{animation:spin 2s linear infinite}
+.tape .pl{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center}
+
+/* zine (paper section) */
+.paper{background:var(--paper);color:var(--ink);margin-top:80px;padding:72px 0;position:relative}
+.paper::before{content:"";position:absolute;left:0;right:0;top:-14px;height:28px;background:var(--paper);clip-path:polygon(0 50%,3% 20%,7% 60%,12% 25%,18% 55%,23% 15%,29% 50%,35% 30%,41% 65%,47% 20%,53% 55%,59% 25%,65% 60%,71% 22%,77% 50%,83% 28%,89% 62%,94% 30%,100% 55%,100% 100%,0 100%)}
+.paper .shead h2 small{color:#6A6271}
+.paper a{color:var(--burgundy)}
+.zines{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.zine{color:var(--ink);display:flex;flex-direction:column;gap:12px}
+.zine:nth-child(1){transform:rotate(-1.2deg)}.zine:nth-child(2){transform:rotate(.8deg) translateY(10px)}.zine:nth-child(3){transform:rotate(-.6deg)}
+.zine .ph{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#D9CFBF 0 2px,transparent 2px 10px),#E3DACB;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;color:#5A5260}
+.zine .k{font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--burgundy)}
+.zine .h{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.08;letter-spacing:-.4px}
+.zine .m{font-size:14px;color:#4B4452}
+.zine:hover{color:var(--ink)}.zine:hover .h{text-decoration:underline;text-decoration-thickness:2px}
+
+/* find us */
+.find{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:24px}
+.box{background:var(--ink2);border:1px solid var(--line);border-radius:24px;padding:30px}
+.addr{font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.1;letter-spacing:-.6px}
+.route{display:flex;align-items:center;gap:0;margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--dim);flex-wrap:wrap}
+.route .stop{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:96px;text-align:center}
+.route .dot{width:16px;height:16px;border-radius:50%;border:3px solid var(--coral);background:var(--ink)}
+.route .dot.end{background:var(--coral)}
+.route .seg2{flex:1 1 40px;height:3px;background:repeating-linear-gradient(90deg,var(--coral) 0 8px,transparent 8px 14px);margin-bottom:22px;min-width:30px}
+.band{background:var(--coral);color:var(--ink);border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:14px;justify-content:space-between}
+.band h3{font-family:var(--display);font-weight:800;font-size:32px;line-height:1;letter-spacing:-.8px;margin:0}
+
+footer{padding-top:56px;padding-bottom:28px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--faint);font-size:14px}
+footer a{color:var(--dim)}
+
+/* dock */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(21,18,28,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.dock .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.mini{width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;background:var(--lime);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.minidisc{width:40px;height:40px;border-radius:50%;background:repeating-radial-gradient(#121014 0 1px,#232029 1px 2px);position:relative;flex:0 0 auto;animation:spin 3.2s linear infinite;animation-play-state:paused}
+.minidisc::after{content:"";position:absolute;inset:34%;border-radius:50%;background:var(--coral)}
+body.playing .minidisc{animation-play-state:running}
+
+@media (max-width:900px){
+  .herogrid,.dialwrap,.find{grid-template-columns:minmax(0,1fr)}
+  .herogrid{min-height:0}
+  .deck{max-width:380px}
+  .ghost{font-size:44vw}
+}
+@media (max-width:560px){
+  .wrap{padding-left:18px;padding-right:18px}
+  nav.main{gap:14px}
+  .slot{grid-template-columns:70px 5px minmax(0,1fr)}
+  .slot .g{display:none}
+  .playbig{width:80px;height:80px}
+  .hide-sm{display:none}
+}
+</style>
+</head>
+<body>
+<div class="concept">Concept design for discussion — not the official CJLO website · Live audio is CJLO’s real stream</div>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" aria-label="CJLO 1690AM home"><img src="logo.png" alt="CJLO 1690AM, 20 years"></a>
+    <nav class="main" aria-label="Main">
+      <a href="#onair">On Air<small>EN ONDES</small></a>
+      <a href="#dial">Schedule<small>HORAIRE</small></a>
+      <a href="#booth">DJs<small>ANIMATEURS</small></a>
+      <a href="#zine">Magazine<small>LE ZINE</small></a>
+      <a href="#find">Visit<small>NOUS TROUVER</small></a>
+    </nav>
+    <a class="btn coral" href="https://www.cjlo.com/donate">Donate · Donner</a>
+  </div>
+</header>
+
+<main>
+  <section id="onair" class="wrap hero" aria-label="Live now">
+    <div class="ghost" aria-hidden="true">1690</div>
+    <div class="herogrid">
+      <div>
+        <div class="over"><span class="livechip"><i></i>EN ONDES · ON AIR</span><span id="clock">Montréal</span></div>
+        <h1 class="showname" id="showtitle">CJLO 1690AM</h1>
+        <div class="showmeta">
+          <span class="tag" id="slottime">—</span>
+          <span class="tag" id="slotgenre">—</span>
+          <a class="tag" id="showlink" href="https://www.cjlo.com/shows">About the show ↗</a>
+        </div>
+        <div class="np">
+          <div class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
+          <div style="min-width:0">
+            <div class="lbl">NOW PLAYING · EN CE MOMENT</div>
+            <div id="songtitle" style="font-weight:600;font-size:16px;margin-top:2px">Song titles appear here when the studio sends them</div>
+          </div>
+        </div>
+        <div class="ctrl">
+          <div class="seg" role="group" aria-label="Stream quality">
+            <button data-q="auto" aria-pressed="true">Auto</button><button data-q="saver" aria-pressed="false">Data saver</button><button data-q="hifi" aria-pressed="false">Hi‑fi</button>
+          </div>
+          <span class="mono" id="qnote" style="font-size:12px;color:var(--faint)"></span>
+        </div>
+        <div style="margin-top:22px;color:var(--dim);font-size:15px">Requests? Call or text the booth: <a href="tel:+15148487471" style="font-weight:700">514‑848‑7471</a></div>
+      </div>
+
+      <div class="deck">
+        <div class="plinth"></div>
+        <div class="vinyl" aria-hidden="true"></div>
+        <div class="label" aria-hidden="true"><img src="logo-black.png" alt=""></div>
+        <svg class="arm" viewBox="0 0 200 280" aria-hidden="true">
+          <circle cx="170" cy="34" r="24" fill="#2A2533" stroke="#3A3446" stroke-width="2"/>
+          <circle cx="170" cy="34" r="9" fill="#8F889B"/>
+          <path d="M170 34 L150 190 Q146 220 118 236" stroke="#CFC7D8" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <rect x="96" y="228" width="34" height="18" rx="4" transform="rotate(-30 113 237)" fill="#F26B47"/>
+        </svg>
+        <button class="playbig js-play" type="button" aria-label="Play live stream">
+          <svg class="ic-play" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#0D0B12"/></svg>
+          <svg class="ic-pause" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><rect x="6" y="5" width="4" height="14" rx="1" fill="#0D0B12"/><rect x="14" y="5" width="4" height="14" rx="1" fill="#0D0B12"/></svg>
+        </button>
+        <div class="freq"><b>1690 kHz</b>AM · Montréal<br><span id="pstatus">Tap to tune in</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+
+  <section id="dial" class="wrap s" aria-labelledby="dialh">
+    <div class="shead">
+      <h2 id="dialh"><small>LE CADRAN · 24 H</small>The dial</h2>
+      <div class="days" role="group" aria-label="Day" id="days"></div>
+    </div>
+    <div class="dialwrap">
+      <div class="dial" id="dialsvg"></div>
+      <div>
+        <div class="legend" id="legend"></div>
+        <div class="list" id="slots" role="list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booth" class="wrap s" aria-labelledby="boothh">
+    <div class="shead">
+      <h2 id="boothh"><small>DANS LA CABINE · <span id="boothday"></span></small>In the booth</h2>
+      <p style="margin:0;max-width:380px;color:var(--dim)">Volunteer DJs and hosts from Concordia and across Montréal. Every show gets its own sleeve.</p>
+    </div>
+    <div class="sleeves" id="sleeves"></div>
+  </section>
+
+  <section class="wrap s" aria-labelledby="tapeh">
+    <div class="shead">
+      <h2 id="tapeh"><small>RATTRAPAGE · CATCH UP</small>Missed it?</h2>
+      <a href="https://www.cjlo.com/episode-archive" style="font-weight:700">Episode archive ↗</a>
+    </div>
+    <div class="tapes">
+      <a class="tape" href="https://www.cjlo.com/shows/bikini-brrroadcast/episode-10112616"><div class="lab"><b>Bikini Brrroadcast</b><span>TUE 10 NOV · 16:00</span></div><div class="win"><i></i><i></i></div><span class="pl"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#F3EEE6"/></svg></span></a>
+      <a class="tape" href="https://www.cjlo.com/shows/at-movies/episode-10112609"><div class="lab"><b>At The Movies</b><span>TUE 10 NOV · 09:00</span></div><div class="win"><i></i><i></i></div><span class="pl"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#F3EEE6"/></svg></span></a>
+      <a class="tape" href="https://www.cjlo.com/shows/past-tense/episode-09112622"><div class="lab"><b>Past Tense</b><span>MON 9 NOV · 22:00</span></div><div class="win"><i></i><i></i></div><span class="pl"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#F3EEE6"/></svg></span></a>
+      <a class="tape" href="https://www.cjlo.com/shows/tommy-john-show/episode-09112614"><div class="lab"><b>The Tommy John Show</b><span>MON 9 NOV · 14:00</span></div><div class="win"><i></i><i></i></div><span class="pl"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#F3EEE6"/></svg></span></a>
+    </div>
+  </section>
+
+  <section id="zine" class="paper" aria-labelledby="zineh">
+    <div class="wrap">
+      <div class="shead">
+        <h2 id="zineh"><small>LE ZINE · MAGAZINE</small>Words on music</h2>
+        <a href="https://www.cjlo.com/blog" style="font-weight:700">All stories ↗</a>
+      </div>
+      <div class="zines">
+        <a class="zine" href="https://www.cjlo.com/articles/diles-que-no-me-maten-escrito-agua-tour-2026-at-casa-del-popolo"><div class="ph">PHOTO</div><span class="k">INTERVIEWS · 13 NOV</span><span class="h">Diles que no me maten Escrito en Agua tour 2026 at Casa del Popolo</span><span class="m">by Pamela Subia</span></a>
+        <a class="zine" href="https://www.cjlo.com/blog"><div class="ph">PHOTO</div><span class="k">CONCERT REVIEWS · 13 NOV</span><span class="h">Jackie Evans’ Sold Out Piano Bar</span><span class="m">by Micaela Kira</span></a>
+        <a class="zine" href="https://www.cjlo.com/blog"><div class="ph">PHOTO</div><span class="k">CONCERT REVIEWS · 9 NOV</span><span class="h">A GOODTIME with The Darcy’s</span><span class="m">by Micaela Kira</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="find" class="wrap s" aria-labelledby="findh">
+    <div class="shead"><h2 id="findh"><small>NOUS TROUVER · FIND US</small>The booth is open</h2></div>
+    <div class="find">
+      <div class="box">
+        <div class="mono" style="font-size:12px;color:var(--faint);letter-spacing:1px">CONCORDIA UNIVERSITY · CAMPUS LOYOLA</div>
+        <div class="addr" style="margin-top:10px">7141 Sherbrooke St. West<br>CC‑430 · Montréal, Québec</div>
+        <div class="route" aria-label="Getting here by transit">
+          <div class="stop"><span class="dot"></span>Vendôme<br>orange line</div>
+          <div class="seg2"></div>
+          <div class="stop"><span class="dot"></span>Bus 105<br>west</div>
+          <div class="seg2"></div>
+          <div class="stop"><span class="dot end"></span>Campus<br>Loyola</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+          <a class="btn line" href="https://www.cjlo.com/our-location">Directions ↗</a>
+          <a class="btn line" href="https://www.cjlo.com/volunteer">Get on air · Volunteer ↗</a>
+        </div>
+      </div>
+      <div class="band">
+        <div>
+          <div class="mono" style="font-size:12px;letter-spacing:1px">20 ANS · 20 YEARS</div>
+          <h3 style="margin-top:8px">Independent radio, made by Montréal.</h3>
+        </div>
+        <p style="margin:0;font-size:15px">Volunteer-run and listener-supported. Help keep the signal on.</p>
+        <a class="btn ink" href="https://www.cjlo.com/donate" style="align-self:flex-start">Donate · Donner</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div style="display:flex;flex-direction:column;gap:8px"><img src="logo.png" alt="CJLO 1690AM" style="height:36px;align-self:flex-start"><span>CJLO 1690AM · Concordia University Radio</span></div>
+    <nav aria-label="Footer" style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://www.cjlo.com/charts">Charts</a><a href="https://www.cjlo.com/sessions">Live sessions</a><a href="https://www.cjlo.com/submit-music">Submit music</a><a href="https://www.cjlo.com/contact-us">Contact</a></nav>
+  </footer>
+</main>
+
+<div class="dock" aria-label="Live player">
+  <div class="wrap">
+    <button class="mini js-play" type="button" aria-label="Play live stream">
+      <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#0D0B12"/></svg>
+      <svg class="ic-pause" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><rect x="6" y="5" width="4" height="14" rx="1" fill="#0D0B12"/><rect x="14" y="5" width="4" height="14" rx="1" fill="#0D0B12"/></svg>
+    </button>
+    <div class="minidisc hide-sm" aria-hidden="true"></div>
+    <div style="flex:1;min-width:0">
+      <div id="docktitle" style="font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">CJLO 1690AM</div>
+      <div id="docksub" class="mono" style="color:var(--faint);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">1690 AM · Montréal</div>
+    </div>
+    <span class="mono hide-sm" id="dockq" style="color:var(--faint);font-size:12px">AUTO · HLS</span>
+  </div>
+</div>
+
+<script>
+const SCHED = [[0,0,60,"Floydian Slip","Rock/Alt","/shows/floydian-slip"],[0,60,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[0,360,480,"Sun Ra, Sun Rise","Jazz","/shows/sun-ra-sun-rise"],[0,480,540,"The Gigi Brown Experience","Rock/Alt","/shows/the-gigi-brown-experience"],[0,540,600,"REVC","Rock/Alt","/shows/revc"],[0,600,720,"Rigged Sessions","RPM","/shows/rigged-sessions"],[0,720,780,"Brave Little Emo Girl","Rock/Alt","/shows/brave-little-emo-girl"],[0,780,840,"Northern Stagelights / Psychs In The Sixty","Rock/Alt","/shows/northern-stagelights"],[0,840,900,"Methods and Madness","Talk","/shows/methods-and-madness"],[0,900,960,"Fukubukuro","Specialty","/shows/fukubukuro"],[0,960,1080,"Grade A Explosives","Metal","/shows/grade-a-explosives"],[0,1080,1140,"Bill's Country & Western Favourites","Specialty","/shows/bills-country-and-western-favourites"],[0,1140,1200,"No Boundaries","Specialty","/shows/no-boundaries"],[0,1200,1260,"Towards A Common Horizon","Talk","/shows/towards-a-common-horizon"],[0,1260,1320,"Afro Archives","World","/shows/afro-archives"],[0,1320,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[1,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[1,360,480,"Experiments","Specialty","/shows/experiments"],[1,480,540,"Trawling the Megahertz","Specialty","/shows/trawling-the-megahertz"],[1,540,600,"Death of the Midrange","Talk","/shows/death-of-the-midrange"],[1,600,660,"Democracy Now","Talk","/shows/democracy-now"],[1,660,720,"I Think You Might Like This","Specialty","/shows/i-think-you-might-like-this"],[1,720,780,"Twang City","Specialty","/shows/twang-city"],[1,780,840,"The Tommy John Show","Talk","/shows/the-tommy-john-show"],[1,840,900,"L'Organe à la radio","Specialty","/shows/lorgane-a-la-radio"],[1,900,960,"Whip Appeal","Hip Hop","/shows/whip-appeal"],[1,960,1020,"Dreamscapes","Talk","/shows/dreamscapes"],[1,1020,1080,"The Pressure Drop","Rock/Alt","/shows/the-pressure-drop"],[1,1080,1140,"Voice of the Voiceless","Talk","/shows/voice-of-the-voiceless"],[1,1140,1200,"Monday Mass with Father Kate","Rock/Alt","/shows/monday-mass-with-father-kate"],[1,1200,1260,"In The Garage","Rock/Alt","/shows/in-the-garage"],[1,1260,1320,"LEKTOR DECODER","Rock/Alt","/shows/lektor-decoder"],[1,1320,1380,"Past Tense","Rock/Alt","/shows/past-tense"],[1,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[2,360,540,"Hip's Time to Wake Hop","Hip Hop","/shows/hips-time-to-wake-hop"],[2,540,600,"At The Movies","Specialty","/shows/at-the-movies"],[2,600,660,"Democracy Now","Talk","/shows/democracy-now"],[2,660,720,"Mirror Journal","RPM","/shows/mirror-journal"],[2,720,780,"World Beat News","World","/shows/world-beat-news"],[2,780,840,"Shaking the Habitual","Specialty","/shows/shaking-the-habitual"],[2,840,900,"Something for the Mood","Rock/Alt","/shows/something-for-the-mood"],[2,900,960,"Sonic Lit: A SpokenWeb Radio Show","Specialty","/shows/sonic-lit-a-spokenweb-radio-show"],[2,960,1020,"Bikini Brrroadcast","Rock/Alt","/shows/bikini-brrroadcast"],[2,1020,1080,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,1080,1140,"feminemix","RPM","/shows/feminemix"],[2,1140,1200,"Ashes to Ashes","Rock/Alt","/shows/ashes-to-ashes"],[2,1200,1260,"Hittin' All The Bases","Rock/Alt","/shows/hittin-all-the-bases"],[2,1260,1320,"NSIDE!","Specialty","/shows/nside"],[2,1320,1380,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,1380,1440,"Turn Off The Lights","Rock/Alt","/shows/turn-off-the-lights"],[3,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[3,360,480,"Morning Electro-shock","RPM","/shows/morning-electro-shock"],[3,480,540,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[3,540,600,"Are We There Yet?","Rock/Alt","/shows/are-we-there-yet"],[3,600,660,"Democracy Now","Talk","/shows/democracy-now"],[3,660,720,"Code Switch","Specialty","/shows/code-switch"],[3,720,780,"North-South Hockey","Talk","/shows/north-south-hockey"],[3,780,840,"The Fluid Mosaic","Rock/Alt","/shows/the-fluid-mosaic"],[3,840,900,"Cherry Vamp and the Sonic Coffin","Rock/Alt","/shows/cherry-vamp-and-the-sonic-coffin"],[3,900,960,"Patch Notes","RPM","/shows/patch-notes"],[3,960,1020,"Borderline","World","/shows/borderline"],[3,1020,1080,"Advice By The Fireplace","Talk","/shows/advice-by-the-fireplace"],[3,1080,1140,"The New Consonance","Specialty","/shows/the-new-consonance"],[3,1140,1260,"BVST","Rock/Alt","/shows/bvst"],[3,1260,1320,"There's a Synth in the House","RPM","/shows/theres-a-synth-in-the-house"],[3,1320,1380,"Sippin' On Sound","Specialty","/shows/sippin-on-sound"],[3,1380,1440,"The Night Watch","Specialty","/shows/the-night-watch"],[4,0,60,"The Night Watch","Specialty","/shows/the-night-watch"],[4,60,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[4,360,540,"Daydream Nation","Rock/Alt","/shows/daydream-nation"],[4,540,600,"Everything Everywhere","Specialty","/shows/everything-everywhere"],[4,600,660,"Democracy Now","Talk","/shows/democracy-now"],[4,660,720,"Chi and Ri","Hip Hop","/shows/chi-and-ri"],[4,720,780,"The Power Hour","Talk","/shows/the-power-hour"],[4,780,840,"What's Happening in NDG","Talk","/shows/whats-happening-in-ndg"],[4,840,900,"Secondhand Sounds","Specialty","/shows/secondhand-sounds"],[4,900,960,"Weirdo Rippers","Specialty","/shows/weirdo-rippers"],[4,960,1080,"Hooked On Sonics","Rock/Alt","/shows/hooked-on-sonics"],[4,1080,1140,"Unheard Of","Rock/Alt","/shows/unheard-of"],[4,1140,1200,"Electric Messiah","Metal","/shows/electric-messiah"],[4,1200,1260,"Maiden Voyage / Beatnik Boy: Mixtape","Rock/Alt","/shows/maiden-voyage"],[4,1260,1320,"The 514","Rock/Alt","/shows/the-514"],[4,1320,1380,"How Did We Get Here?","Specialty","/shows/how-did-we-get-here"],[4,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[5,0,120,"Finally Midnight","Specialty","/shows/finally-midnight"],[5,120,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[5,360,540,"Wake up Folks!","Specialty","/shows/wake-up-folks"],[5,540,600,"CJLO News Hour","Talk","/shows/cjlo-news-hour"],[5,600,660,"Democracy Now","Talk","/shows/democracy-now"],[5,660,720,"The Alley","Rock/Alt","/shows/the-alley"],[5,720,780,"Charts & Crafts","Specialty","/shows/charts-and-crafts"],[5,780,840,"the castle","Rock/Alt","/shows/the-castle"],[5,840,900,"Spiral Bound","Rock/Alt","/shows/spiral-bound"],[5,900,960,"Dead Beats","Rock/Alt","/shows/dead-beats"],[5,960,1020,"Tapeworms","Specialty","/shows/tapeworms"],[5,1020,1080,"The Groove Master's Hour","Rock/Alt","/shows/the-groove-masters-hour"],[5,1080,1200,"The Go-Go Radio Magic Show","Rock/Alt","/shows/the-go-go-radio-magic-show"],[5,1200,1260,"El Encuentro Latino","Talk","/shows/el-encuentro-latino"],[5,1260,1320,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[5,1320,1380,"The Come Up","Hip Hop","/shows/the-come-up"],[5,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[6,360,540,"World-Up'","World","/shows/world-up"],[6,540,600,"The Live Wire Show","World","/shows/the-live-wire-show"],[6,600,720,"Gospel Unlimited","Specialty","/shows/gospel-unlimited"],[6,720,840,"Anatomy of Caribbean Music","World","/shows/anatomy-of-caribbean-music"],[6,840,960,"Caribbean Callaloo","World","/shows/caribbean-callaloo"],[6,960,1020,"Mi Dun Talk","World","/shows/mi-dun-talk"],[6,1020,1080,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,1080,1140,"The Limelight","Hip Hop","/shows/the-limelight"],[6,1140,1200,"Screamers","Rock/Alt","/shows/screamers"],[6,1200,1260,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,1260,1320,"The Spacious Astrology Playlist","Rock/Alt","/shows/the-spacious-astrology-playlist"],[6,1320,1440,"Brave New Jams","Rock/Alt","/shows/brave-new-jams"]];
+const GENRE={"Rock/Alt":"#FF5A4E","Specialty":"#FF9F43","Talk":"#9BD14A","Hip Hop":"#6C8CFF","RPM":"#C9C9D1","Metal":"#8A8496","World":"#C27BD0","Jazz":"#3CC48A"};
+const GENRE_FR={"Rock/Alt":"Rock/Alt","Specialty":"Spécialisé","Talk":"Parlé","Hip Hop":"Hip-hop","RPM":"Électro","Metal":"Métal","World":"Musiques du monde","Jazz":"Jazz"};
+const DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],DAYS_FR=["dim","lun","mar","mer","jeu","ven","sam"],DAYN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],DAYN_FR=["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+const NOT_DJ=/Alternative Mega Mix|CJLO Late Night|Democracy Now/i;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hhmm=m=>{m=((m%1440)+1440)%1440;return String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0")};
+function mtl(){const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"America/Toronto",weekday:"short",hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(new Date()).map(x=>[x.type,x.value]));return{day:DAYS.indexOf(p.weekday.slice(0,3)),min:(+p.hour%24)*60+(+p.minute)}}
+const slots=SCHED.map(([d,s,e,t,g,u],i)=>({i,d,s,e,t,g,u:"https://www.cjlo.com"+u}));
+const current=()=>{const n=mtl();return slots.find(x=>x.d===n.day&&n.min>=x.s&&n.min<x.e)||null};
+
+/* --- now playing --- */
+function renderNow(){const n=mtl();document.getElementById("clock").textContent=DAYN_FR[n.day]+" · "+hhmm(n.min)+" à Montréal";
+ const c=current();if(!c)return;
+ document.getElementById("showtitle").textContent=c.t;
+ document.getElementById("slottime").textContent=hhmm(c.s)+" – "+hhmm(c.e);
+ const g=document.getElementById("slotgenre");g.textContent=c.g+(GENRE_FR[c.g]&&GENRE_FR[c.g]!==c.g?" · "+GENRE_FR[c.g]:"");g.style.borderColor=GENRE[c.g]||"";g.style.color=GENRE[c.g]||"";
+ document.getElementById("showlink").href=c.u;
+ document.getElementById("docktitle").textContent=c.t;document.getElementById("docksub").textContent=hhmm(c.s)+"–"+hhmm(c.e)+" · "+c.g+" · 1690 AM";}
+
+/* --- marquee --- */
+(function(){const bits=["CJLO 1690AM","Concordia University Radio","Montréal, Québec","Campus Loyola","<em>20 ans</em> / 20 years","Radio libre","Run by volunteers","Écoutez en direct"];const h=bits.map(b=>"<span>"+b+"</span><span><em>✶</em></span>").join("");document.getElementById("mq").innerHTML=h+h})();
+
+/* --- dial --- */
+let selDay=mtl().day, selSlot=null;
+function polar(cx,cy,r,deg){const a=(deg-90)*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]}
+function arc(cx,cy,r0,r1,a0,a1){const big=a1-a0>180?1:0;const[p1x,p1y]=polar(cx,cy,r1,a0),[p2x,p2y]=polar(cx,cy,r1,a1),[p3x,p3y]=polar(cx,cy,r0,a1),[p4x,p4y]=polar(cx,cy,r0,a0);
+ return`M${p1x.toFixed(2)} ${p1y.toFixed(2)}A${r1} ${r1} 0 ${big} 1 ${p2x.toFixed(2)} ${p2y.toFixed(2)}L${p3x.toFixed(2)} ${p3y.toFixed(2)}A${r0} ${r0} 0 ${big} 0 ${p4x.toFixed(2)} ${p4y.toFixed(2)}Z`}
+function renderDial(){const n=mtl(),c=current(),C=280,R1=250,R0=178;const day=slots.filter(x=>x.d===selDay);
+ let s=`<svg viewBox="0 0 560 560" role="img" aria-label="24-hour dial of ${DAYN[selDay]}'s shows">`;
+ s+=`<circle cx="${C}" cy="${C}" r="${R1+16}" fill="none" stroke="#2C2636" stroke-width="1"/>`;
+ for(let h=0;h<24;h++){const a=h*15;const[x1,y1]=polar(C,C,R1+8,a),[x2,y2]=polar(C,C,R1+(h%3?14:22),a);s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${h%3?'#3A3446':'#8F889B'}" stroke-width="${h%3?1:2}"/>`;
+  if(h%3===0){const[tx,ty]=polar(C,C,R1+36,a);s+=`<text x="${tx}" y="${ty}" fill="#8F889B" font-family="DM Mono" font-size="13" text-anchor="middle" dominant-baseline="middle">${String(h).padStart(2,"0")}</text>`}}
+ day.forEach(x=>{const a0=x.s/1440*360+.5,a1=Math.min(x.e,1440)/1440*360-.5;const live=c&&c.i===x.i;const sel=selSlot===x.i;
+  s+=`<path class="arc" data-i="${x.i}" d="${arc(C,C,R0+(sel?-6:0),R1+(sel||live?8:0),a0,a1)}" fill="${GENRE[x.g]||'#555'}" opacity="${selSlot===null||sel?1:.45}" tabindex="0" role="button" aria-label="${esc(x.t)}, ${hhmm(x.s)} to ${hhmm(x.e)}"><title>${esc(x.t)} · ${hhmm(x.s)}–${hhmm(x.e)}</title></path>`});
+ if(selDay===n.day){const a=n.min/1440*360;const[x1,y1]=polar(C,C,60,a),[x2,y2]=polar(C,C,R1+20,a);s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#D7FF3A" stroke-width="3" stroke-linecap="round"/><circle cx="${x2}" cy="${y2}" r="6" fill="#D7FF3A"/>`}
+ const focus=selSlot!==null?slots[selSlot]:(selDay===n.day&&c?c:day[0]);
+ s+=`<circle cx="${C}" cy="${C}" r="${R0-14}" fill="#15121C" stroke="#2C2636"/>`;
+ if(focus){const lbl=selSlot!==null?"SELECTED":(selDay===n.day&&c?"EN ONDES · NOW":"FIRST UP");
+  s+=`<text x="${C}" y="${C-46}" fill="#8F889B" font-family="DM Mono" font-size="13" text-anchor="middle">${lbl}</text>`;
+  const words=focus.t.split(" ");let lines=[""];words.forEach(w=>{if((lines[lines.length-1]+" "+w).trim().length>16)lines.push(w);else lines[lines.length-1]=(lines[lines.length-1]+" "+w).trim()});lines=lines.slice(0,3);
+  lines.forEach((l,k)=>s+=`<text x="${C}" y="${C-12+k*30-(lines.length-1)*12}" fill="#F3EEE6" font-family="Syne" font-weight="800" font-size="26" text-anchor="middle">${esc(l)}</text>`);
+  s+=`<text x="${C}" y="${C+62}" fill="${GENRE[focus.g]||'#B3ACBD'}" font-family="DM Mono" font-size="14" text-anchor="middle">${hhmm(focus.s)} – ${hhmm(focus.e)} · ${esc(focus.g)}</text>`}
+ s+="</svg>";const el=document.getElementById("dialsvg");el.innerHTML=s;
+ el.querySelectorAll("path.arc").forEach(p=>{const pick=()=>{const i=+p.dataset.i;selSlot=selSlot===i?null:i;renderDial()};p.addEventListener("click",pick);p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick()}})});}
+function renderList(){const c=current();document.getElementById("slots").innerHTML=slots.filter(x=>x.d===selDay).map(x=>{const live=c&&c.i===x.i;return`<a role="listitem" class="slot${live?" live":""}" href="${x.u}"><span class="t">${hhmm(x.s)}–${hhmm(x.e)}</span><span class="c" style="background:${GENRE[x.g]||'#555'}"></span><span class="n">${esc(x.t)}${live?'<span class="lv">LIVE</span>':""}</span><span class="g">${esc(x.g)}</span></a>`}).join("")}
+function renderDays(){document.getElementById("days").innerHTML=DAYS.map((d,i)=>`<button data-d="${i}" aria-pressed="${i===selDay}">${d}<small>${DAYS_FR[i]}</small></button>`).join("");
+ document.querySelectorAll("#days button").forEach(b=>b.onclick=()=>{selDay=+b.dataset.d;selSlot=null;renderAll()})}
+document.getElementById("legend").innerHTML=Object.entries(GENRE).map(([g,c])=>`<span><b style="background:${c}"></b>${esc(g)}</span>`).join("");
+
+/* --- generative sleeves --- */
+function hash(str){let h=2166136261;for(const ch of str){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){return()=>{seed=(seed+0x6D2B79F5)|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function sleeve(x){const r=rng(hash(x.t)),g=GENRE[x.g]||"#F26B47",pal=[g,"#F26B47","#F3EEE6","#912338","#D7FF3A","#0D0B12"],pick=()=>pal[Math.floor(r()*pal.length)];
+ const bg=r()<.5?"#0D0B12":(r()<.5?"#912338":"#1E1A27");const type=Math.floor(r()*4);let s=`<svg viewBox="0 0 300 300" aria-hidden="true"><rect width="300" height="300" fill="${bg}"/>`;
+ if(type===0){const cx=60+r()*180,cy=50+r()*140;for(let k=9;k>0;k--)s+=`<circle cx="${cx}" cy="${cy}" r="${k*22}" fill="${k%2?g:bg}" opacity="${.35+k*.07}"/>`}
+ else if(type===1){const c2=pick();for(let k=-300;k<600;k+=26)s+=`<rect x="${k}" y="-50" width="12" height="420" fill="${g}" opacity=".85" transform="rotate(${30+r()*20} 150 150)"/>`;s+=`<circle cx="${80+r()*140}" cy="${70+r()*80}" r="${50+r()*30}" fill="${c2===bg?'#F3EEE6':c2}"/>`}
+ else if(type===2){for(let k=0;k<11;k++){const y=20+k*24,amp=8+r()*22,f=1+r()*3;let d=`M0 ${y}`;for(let xx=0;xx<=300;xx+=10)d+=` L${xx} ${(y+Math.sin(xx/300*Math.PI*2*f+k)*amp).toFixed(1)}`;s+=`<path d="${d}" stroke="${k%3?g:'#F3EEE6'}" stroke-width="${3+r()*4}" fill="none" stroke-linecap="round"/>`}}
+ else{const bx=40+r()*160,by=30+r()*120;s+=`<path d="M${bx} ${by} q${60+r()*60} ${-40} ${110} ${30} t${-10} ${110} t${-120} ${-10}z" fill="${g}"/>`;for(let yy=10;yy<300;yy+=16)for(let xx=10;xx<300;xx+=16){const d=Math.hypot(xx-bx-50,yy-by-50);s+=`<circle cx="${xx}" cy="${yy}" r="${Math.max(.6,4.5-d/45)}" fill="#F3EEE6" opacity=".8"/>`}}
+ return s+"</svg>"}
+function renderSleeves(){const day=slots.filter(x=>x.d===selDay&&!NOT_DJ.test(x.t));document.getElementById("boothday").textContent=DAYN_FR[selDay].toUpperCase();
+ document.getElementById("sleeves").innerHTML=day.map(x=>`<a class="sleeve" href="${x.u}"><div class="art">${sleeve(x)}<span class="tm">${hhmm(x.s)}</span><span class="st">${esc(x.t)}</span></div><span class="sub">${esc(x.g)} · ${DAYN[x.d]} ${hhmm(x.s)}–${hhmm(x.e)}</span></a>`).join("")}
+function renderAll(){renderDays();renderDial();renderList();renderSleeves()}
+
+/* --- quality (concept) --- */
+const QN={auto:"adapts to your connection",saver:"AAC 64 kbps · ~30 MB/h",hifi:"best on Wi‑Fi"},QL={auto:"AUTO",saver:"DATA SAVER",hifi:"HI‑FI"};
+function setQ(q){document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.q===q));document.getElementById("qnote").textContent=QN[q]+" (planned)";document.getElementById("dockq").textContent=QL[q]+" · HLS";try{localStorage.setItem("cjloq",q)}catch(e){}}
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setQ(b.dataset.q));let q0="auto";try{q0=localStorage.getItem("cjloq")||"auto"}catch(e){}setQ(q0);
+
+/* --- live audio --- */
+const STREAM="https://cjlo.radioca.st/stream";const audio=new Audio();audio.preload="none";let want=false;
+function paint(){const on=want&&!audio.paused;document.body.classList.toggle("playing",on);document.querySelectorAll(".js-play").forEach(b=>{b.setAttribute("aria-label",on?"Pause live stream":"Play live stream");b.querySelector(".ic-play").style.display=on?"none":"";b.querySelector(".ic-pause").style.display=on?"":"none"})}
+const status=t=>document.getElementById("pstatus").textContent=t;
+async function toggle(){if(want&&!audio.paused){want=false;audio.pause();audio.removeAttribute("src");audio.load();status("Tap to tune in");paint();return}
+ want=true;status("Tuning in…");audio.src=STREAM+"?t="+Date.now();try{await audio.play();status("Live from Loyola")}catch(e){want=false;status("Couldn’t start — tap again")}paint()}
+audio.addEventListener("playing",()=>{status("Live from Loyola");paint()});audio.addEventListener("waiting",()=>status("Buffering…"));audio.addEventListener("error",()=>{if(want){want=false;status("Stream unavailable");paint()}});
+document.querySelectorAll(".js-play").forEach(b=>b.addEventListener("click",toggle));
+async function song(){try{const r=await fetch("https://cjlo.radioca.st/stats?json=1&_="+Date.now());const j=await r.json();const t=(j.songtitle||"").trim();if(t&&!/^cjlo\b/i.test(t))document.getElementById("songtitle").textContent=t}catch(e){}}
+
+renderNow();renderAll();song();
+setInterval(()=>{renderNow();renderDial();renderList()},60000);setInterval(song,30000);
+</script>
+</body>
+</html>
