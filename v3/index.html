@@ -20,8 +20,8 @@ a{color:var(--link)}a:hover{text-decoration:none;background:var(--boxhd)}
 .concept{background:#000;color:#ffef7a;text-align:center;font-size:12px;padding:6px 10px;font-weight:bold}
 .page{max-width:820px;margin:0 auto;background:var(--box);border-left:3px double var(--boxbd);border-right:3px double var(--boxbd);min-height:100vh}
 .top{background:var(--head);color:var(--headtx);padding:8px 12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.top .brand{font:24px 'VT323',monospace;letter-spacing:1px}
-.top nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.top .brand{display:block;line-height:0}.top .brand img{height:42px;width:auto;display:block}.top .brand:hover{background:transparent}
+.top nav{display:flex;gap:4px;flex-wrap:wrap;flex:1 1 300px}
 .top nav a{color:#fff;font-size:12px;font-weight:bold;padding:4px 6px}
 .top nav a:hover{background:rgba(255,255,255,.2)}
 .lang{display:flex;border:1px solid #fff}
@@ -65,7 +65,21 @@ body.playing .vu b{animation:vu .7s infinite ease-in-out}
 .vu b:nth-child(2){animation-delay:-.2s!important}.vu b:nth-child(3){animation-delay:-.45s!important}.vu b:nth-child(4){animation-delay:-.1s!important}.vu b:nth-child(5){animation-delay:-.35s!important}.vu b:nth-child(6){animation-delay:-.55s!important}
 @keyframes vu{0%,100%{height:15%;background:#7CFF6B}50%{height:100%;background:#ffd23f}}
 .top8{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;text-align:center}
-@media (max-width:420px){.top8{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){
+  .top{display:grid;grid-template-columns:auto 1fr auto;gap:8px 10px}
+  .top nav{grid-column:1 / -1;grid-row:2;flex:none;gap:2px;justify-content:space-between}
+  .top nav a{font-size:11px;padding:6px 4px}
+  .lang{grid-column:3;justify-self:end}
+  .cols{padding:8px;gap:8px}
+  .top8{gap:4px}
+  .top8 svg{width:100%;height:auto;max-width:72px;aspect-ratio:1/1}
+  .top8 a{font-size:10px;padding:2px}
+  .glitter{font-size:26px}
+  .prof{grid-template-columns:104px minmax(0,1fr)}
+  .pic{width:104px;height:104px}
+  .page{border-left:0;border-right:0}
+  table.sched td{padding:6px 4px}
+}
 .top8 a{font-size:11px;font-weight:bold;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;padding:4px}
 .top8 a span{text-decoration:underline}
 .top8 svg{width:84px;height:84px;border:2px solid var(--boxbd);image-rendering:pixelated;background:#fff}
@@ -93,7 +107,7 @@ footer{text-align:center;font-size:11px;padding:12px;border-top:1px solid var(--
 <div class="concept" data-i18n="concept">Concept design for discussion: not the official CJLO website. The live audio is CJLO's real stream.</div>
 <div class="page">
   <div class="top">
-    <span class="brand">cjlo<b>.profile</b></span>
+    <a class="brand" href="#me" aria-label="CJLO 1690AM home"><img src="logo.png" alt="CJLO 1690AM, 20 years"></a>
     <nav aria-label="Main">
       <a href="#me" data-i18n="n_home">Home</a><a href="#lineup" data-i18n="n_sched">Schedule</a><a href="#top8" data-i18n="n_friends">Top 8</a><a href="#blog" data-i18n="n_blog">Blog</a><a href="#shout" data-i18n="n_shout">Shoutbox</a><a href="https://www.cjlo.com/donate" data-i18n="n_donate">Donate</a>
     </nav>
