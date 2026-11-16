@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJLO 1690AM's Profile (2006 edition · concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--tile1:#F26B47;--tile2:#1a0f14;--head:#6b1e2e;--headtx:#fff;--box:#fff;--boxbd:#6b1e2e;--boxhd:#F9D6CB;--link:#1d4fbf;--text:#1b1b1b;--accent:#F26B47}
+body.t-concordia{--tile1:#912338;--tile2:#2b0b13;--head:#912338;--box:#fffaf2;--boxbd:#912338;--boxhd:#F3D9A4;--accent:#C8962E}
+body.t-midnight{--tile1:#2b2bff;--tile2:#05051a;--head:#000033;--box:#0b0b24;--boxbd:#6e6eff;--boxhd:#1d1d5c;--link:#9fd0ff;--text:#e9e9ff;--accent:#ff3df2}
+*{box-sizing:border-box}
+body{margin:0;font-family:Verdana,Tahoma,Arial,sans-serif;font-size:13px;color:var(--text);
+  background-color:var(--tile2);
+  background-image:radial-gradient(var(--tile1) 18%,transparent 19%),radial-gradient(var(--tile1) 18%,transparent 19%);
+  background-size:28px 28px;background-position:0 0,14px 14px}
+a{color:var(--link)}a:hover{text-decoration:none;background:var(--boxhd)}
+.concept{background:#000;color:#ffef7a;text-align:center;font-size:12px;padding:6px 10px;font-weight:bold}
+.page{max-width:820px;margin:0 auto;background:var(--box);border-left:3px double var(--boxbd);border-right:3px double var(--boxbd);min-height:100vh}
+.top{background:var(--head);color:var(--headtx);padding:8px 12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top .brand{font:24px 'VT323',monospace;letter-spacing:1px}
+.top nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.top nav a{color:#fff;font-size:12px;font-weight:bold;padding:4px 6px}
+.top nav a:hover{background:rgba(255,255,255,.2)}
+.lang{display:flex;border:1px solid #fff}
+.lang button{border:0;background:transparent;color:#fff;font:bold 12px Verdana,sans-serif;padding:6px 10px;cursor:pointer;min-height:32px}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--head)}
+.marq{background:#000;color:#7CFF6B;font:20px 'VT323',monospace;white-space:nowrap;overflow:hidden;border-top:2px solid var(--accent);border-bottom:2px solid var(--accent)}
+.marq span{display:inline-block;padding:4px 0;animation:m 28s linear infinite}
+@keyframes m{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.marq span{animation:none}.glitter{animation:none!important}.blink{animation:none!important}}
+.cols{display:grid;grid-template-columns:300px minmax(0,1fr);gap:12px;padding:12px}
+@media (max-width:720px){.cols{grid-template-columns:minmax(0,1fr)}}
+.box{border:1px solid var(--boxbd);background:var(--box);margin-bottom:12px}
+.box h2{margin:0;background:var(--boxhd);color:var(--text);font-size:13px;padding:4px 8px;border-bottom:1px solid var(--boxbd);font-weight:bold}
+.box .in{padding:8px}
+.glitter{font-family:'Arial Black',Arial,sans-serif;font-size:30px;line-height:1.05;margin:0 0 6px;
+  background:linear-gradient(90deg,#ff3d77,#ffd23f,#7cff6b,#3dd5ff,#c77dff,#ff3d77);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:g 4s linear infinite;
+  filter:drop-shadow(1px 1px 0 #000)}
+@keyframes g{to{background-position:300% 0}}
+.prof{display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px}
+.pic{width:130px;height:130px;background:#000;border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;padding:6px}
+.pic img{width:100%;height:auto}
+.small{font-size:11px}
+.online{display:inline-flex;align-items:center;gap:4px;color:#0a8f2a;font-weight:bold;font-size:12px}
+.online i{width:10px;height:10px;background:#21d44a;border:1px solid #0a6a1f;display:inline-block}
+.blink{animation:b 1s steps(2) infinite}@keyframes b{50%{opacity:0}}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.contact a,.contact button{display:flex;align-items:center;gap:6px;font-size:12px;padding:6px;border:1px solid var(--boxbd);background:var(--box);color:var(--link);text-decoration:none;cursor:pointer;font-family:inherit;min-height:34px}
+.contact a:hover,.contact button:hover{background:var(--boxhd)}
+.ico{width:16px;height:16px;flex:0 0 auto}
+table.int{width:100%;border-collapse:collapse;font-size:12px}
+table.int th{background:var(--boxhd);text-align:left;vertical-align:top;width:90px;padding:5px;border:1px solid var(--boxbd)}
+table.int td{padding:5px;border:1px solid var(--boxbd)}
+.player{background:linear-gradient(#3a3a3a,#111);border:2px outset #888;padding:8px;color:#fff;display:flex;align-items:center;gap:10px}
+.player button{width:44px;height:44px;border:2px outset #aaa;background:linear-gradient(#ffe08a,#f2a33a);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.player button:active{border-style:inset}
+.lcd{flex:1;min-width:0;background:#a8c99a;color:#163a12;font:20px 'VT323',monospace;padding:4px 8px;border:2px inset #777;white-space:nowrap;overflow:hidden}
+.lcd .scroll{display:inline-block;animation:m 14s linear infinite}
+.vu{display:flex;gap:2px;align-items:flex-end;height:28px}
+.vu b{width:5px;background:#7CFF6B;height:15%}
+body.playing .vu b{animation:vu .7s infinite ease-in-out}
+.vu b:nth-child(2){animation-delay:-.2s!important}.vu b:nth-child(3){animation-delay:-.45s!important}.vu b:nth-child(4){animation-delay:-.1s!important}.vu b:nth-child(5){animation-delay:-.35s!important}.vu b:nth-child(6){animation-delay:-.55s!important}
+@keyframes vu{0%,100%{height:15%;background:#7CFF6B}50%{height:100%;background:#ffd23f}}
+.top8{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;text-align:center}
+@media (max-width:420px){.top8{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.top8 a{font-size:11px;font-weight:bold;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;padding:4px}
+.top8 a span{text-decoration:underline}
+.top8 svg{width:84px;height:84px;border:2px solid var(--boxbd);image-rendering:pixelated;background:#fff}
+table.sched{width:100%;border-collapse:collapse;font-size:12px}
+table.sched td{padding:5px 6px;border-bottom:1px dotted var(--boxbd)}
+table.sched tr:nth-child(odd) td{background:color-mix(in srgb,var(--boxhd) 45%,transparent)}
+table.sched tr.live td{background:#fff27a;color:#000;font-weight:bold}
+.days{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px}
+.days button{font:bold 11px Verdana,sans-serif;border:1px solid var(--boxbd);background:var(--box);color:var(--link);padding:5px 8px;cursor:pointer;min-height:30px}
+.days button[aria-pressed="true"]{background:var(--head);color:#fff}
+.blog li{margin-bottom:8px}
+.shout textarea{width:100%;min-height:60px;font-family:inherit;font-size:13px;border:1px solid var(--boxbd);padding:6px;background:#fff;color:#111}
+.shout button,.btn{font:bold 12px Verdana,sans-serif;border:2px outset #ccc;background:#eee;color:#111;padding:6px 12px;cursor:pointer;min-height:32px}
+.shout .s{border-bottom:1px dotted var(--boxbd);padding:6px 0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px}
+.shout .s svg{width:48px;height:48px;border:1px solid var(--boxbd)}
+.badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:10px}
+.badge{font:15px 'VT323',monospace;border:1px solid #000;padding:2px 6px;background:#c0c0c0;color:#000}
+.badge.b2{background:#000;color:#7CFF6B}.badge.b3{background:#ff3d77;color:#fff}
+.counter{font:22px 'VT323',monospace;background:#000;color:#ff3d3d;padding:2px 8px;letter-spacing:3px;border:2px inset #555}
+footer{text-align:center;font-size:11px;padding:12px;border-top:1px solid var(--boxbd)}
+.sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<div class="concept" data-i18n="concept">Concept design for discussion: not the official CJLO website. The live audio is CJLO's real stream.</div>
+<div class="page">
+  <div class="top">
+    <span class="brand">cjlo<b>.profile</b></span>
+    <nav aria-label="Main">
+      <a href="#me" data-i18n="n_home">Home</a><a href="#lineup" data-i18n="n_sched">Schedule</a><a href="#top8" data-i18n="n_friends">Top 8</a><a href="#blog" data-i18n="n_blog">Blog</a><a href="#shout" data-i18n="n_shout">Shoutbox</a><a href="https://www.cjlo.com/donate" data-i18n="n_donate">Donate</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language / Langue"><button data-lang="en" aria-pressed="true">EN</button><button data-lang="fr" aria-pressed="false">FR</button></div>
+  </div>
+  <div class="marq" aria-hidden="true"><span id="marq"></span></div>
+
+  <div class="cols">
+    <!-- LEFT -->
+    <div>
+      <div class="box" id="me">
+        <div class="in">
+          <h1 class="glitter">CJLO 1690AM</h1>
+          <div class="prof">
+            <div class="pic"><img src="logo.png" alt="CJLO 1690AM logo"></div>
+            <div style="font-size:12px;line-height:1.55">
+              <div>"<span data-i18n="tagline">radio libre, all night long</span>"</div>
+              <div data-i18n="kind">Campus &amp; community radio</div>
+              <div>Montréal, Québec</div>
+              <div>Canada</div>
+              <div style="margin-top:6px"><span class="online"><i class="blink"></i><span data-i18n="online">ONLINE NOW!</span></span></div>
+              <div class="small" style="margin-top:4px"><b data-i18n="mood">Mood:</b> <span data-i18n="mood_v">on air</span></div>
+              <div class="small" id="listeners" style="display:none"><b data-i18n="listening">Listening now:</b> <span id="lcount"></span></div>
+            </div>
+          </div>
+          <div class="small" style="margin-top:8px"><b data-i18n="view">View my:</b> <a href="https://www.cjlo.com/sessions" data-i18n="v_sessions">Live sessions</a> | <a href="https://www.cjlo.com/charts" data-i18n="v_charts">Charts</a> | <a href="https://www.cjlo.com/episode-archive" data-i18n="v_archive">Archive</a></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 data-i18n="contacting">Contacting CJLO</h2>
+        <div class="in contact">
+          <button class="js-play" type="button"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="#0a8f2a"/></svg><span data-i18n="c_listen">Listen live</span></button>
+          <a href="tel:+15148487471"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1h3l1 4-2 1a8 8 0 0 0 5 5l1-2 4 1v3c0 1-1 2-2 2C7 15 1 9 1 3c0-1 1-2 2-2z" fill="#1d4fbf"/></svg><span data-i18n="c_call">Call requests</span></a>
+          <a href="sms:+15148487471"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="14" height="10" rx="2" fill="#c77dff"/><path d="M4 12v3l3-3" fill="#c77dff"/></svg><span data-i18n="c_text">Text requests</span></a>
+          <a href="https://www.cjlo.com/donate"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14S1 9.5 1 5a3.5 3.5 0 0 1 7-1 3.5 3.5 0 0 1 7 1c0 4.5-7 9-7 9z" fill="#ff3d77"/></svg><span data-i18n="c_donate">Donate</span></a>
+          <a href="https://www.cjlo.com/volunteer"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="3" fill="#F26B47"/><path d="M2 15c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5z" fill="#F26B47"/></svg><span data-i18n="c_vol">Volunteer</span></a>
+          <a href="https://www.cjlo.com/submit-music"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#111"/><circle cx="8" cy="8" r="2" fill="#ffd23f"/></svg><span data-i18n="c_submit">Send music</span></a>
+          <a href="https://www.cjlo.com/contact-us"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="10" fill="#ffd23f"/><path d="M1 3l7 6 7-6" stroke="#111" fill="none"/></svg><span data-i18n="c_mail">Message</span></a>
+          <a href="https://www.cjlo.com/our-location"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15s5-5 5-9A5 5 0 0 0 3 6c0 4 5 9 5 9z" fill="#21d44a"/><circle cx="8" cy="6" r="2" fill="#fff"/></svg><span data-i18n="c_visit">Visit us</span></a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 data-i18n="url">CJLO's URL</h2>
+        <div class="in small"><a href="https://www.cjlo.com">www.cjlo.com</a></div>
+      </div>
+
+      <div class="box">
+        <h2 data-i18n="interests">CJLO's Interests</h2>
+        <div class="in">
+          <table class="int">
+            <tr><th data-i18n="i_general">General</th><td data-i18n="i_general_v">Montréal music scenes, campus life, community news, live sessions, record stores, staying up too late</td></tr>
+            <tr><th data-i18n="i_music">Music</th><td data-i18n="i_music_v">Rock/alt, metal, jazz, hip hop, electronic, world, country, emo, psych, whatever you haven't heard yet</td></tr>
+            <tr><th data-i18n="i_talk">Talk</th><td data-i18n="i_talk_v">Science, film, climate, local politics, hockey</td></tr>
+            <tr><th data-i18n="i_home">Home</th><td data-i18n="i_home_v">Room CC-430, Loyola Campus, 7141 Sherbrooke St. West</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="box">
+        <h2><span data-i18n="onair_h">CJLO is on the air right now!</span></h2>
+        <div class="in">
+          <div class="player">
+            <button class="js-play" type="button" aria-label="Play live stream">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" fill="#111"/></svg>
+              <svg class="ic-pause" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><rect x="5" y="4" width="5" height="16" fill="#111"/><rect x="14" y="4" width="5" height="16" fill="#111"/></svg>
+            </button>
+            <div class="lcd"><span class="scroll" id="lcd">CJLO 1690AM</span></div>
+            <div class="vu" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+          </div>
+          <div class="small" style="margin-top:6px" id="pstatus"></div>
+          <div class="small" style="margin-top:4px"><b data-i18n="np">Now playing:</b> <span id="song" data-i18n="song_ph">song titles show up here when the studio sends them</span></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 data-i18n="about_h">About CJLO</h2>
+        <div class="in" style="line-height:1.6">
+          <p style="margin-top:0" data-i18n="about_p1">Hey! We're CJLO 1690AM, Concordia University's radio station, broadcasting from the Loyola campus in Montréal's west end. Volunteer DJs and hosts run almost everything you hear.</p>
+          <p style="margin-bottom:0" data-i18n="about_p2">Turn us on for weird and wonderful music, local news and talk, and live sessions from bands passing through town.</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 data-i18n="meet_h">Who CJLO'd like to meet</h2>
+        <div class="in" style="line-height:1.6" data-i18n="meet_p">Local bands with a demo, students who want to learn radio, night owls, record collectors, and anyone with a show idea. Come say hi on the 4th floor.</div>
+      </div>
+
+      <div class="box" id="top8">
+        <h2><span data-i18n="top8_h">CJLO's Top 8</span> <span class="small" style="font-weight:normal">(<span data-i18n="top8_sub">coming up next</span>)</span></h2>
+        <div class="in top8" id="top8grid"></div>
+      </div>
+
+      <div class="box" id="lineup">
+        <h2 data-i18n="lineup_h">The lineup</h2>
+        <div class="in">
+          <div class="days" role="group" aria-label="Day" id="days"></div>
+          <table class="sched"><tbody id="sched"></tbody></table>
+        </div>
+      </div>
+
+      <div class="box" id="blog">
+        <h2 data-i18n="blog_h">CJLO's latest blog entries</h2>
+        <div class="in">
+          <ul class="blog" style="margin:0;padding-left:18px">
+            <li><a href="https://www.cjlo.com/articles/diles-que-no-me-maten-escrito-agua-tour-2026-at-casa-del-popolo">Diles que no me maten Escrito en Agua tour 2026 at Casa del Popolo</a> <span class="small">(<span data-i18n="cat_int">Interviews</span> · Nov 13)</span></li>
+            <li><a href="https://www.cjlo.com/blog">Jackie Evans’ Sold Out Piano Bar</a> <span class="small">(<span data-i18n="cat_con">Concert reviews</span> · Nov 13)</span></li>
+            <li><a href="https://www.cjlo.com/blog">A GOODTIME with The Darcy’s</a> <span class="small">(<span data-i18n="cat_con">Concert reviews</span> · Nov 9)</span></li>
+          </ul>
+          <div class="small" style="text-align:right;margin-top:4px"><a href="https://www.cjlo.com/blog" data-i18n="blog_all">[View all blog entries]</a></div>
+        </div>
+      </div>
+
+      <div class="box" id="shout">
+        <h2 data-i18n="shout_h">Shoutbox</h2>
+        <div class="in shout">
+          <label for="shoutin" class="small" data-i18n="shout_l">Leave a shout for your fave show:</label>
+          <textarea id="shoutin" maxlength="280"></textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap">
+            <span class="small" data-i18n="shout_note">In this concept, shouts stay on your device only.</span>
+            <button type="button" id="shoutbtn" data-i18n="shout_btn">Post shout</button>
+          </div>
+          <div id="shouts" style="margin-top:8px"></div>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2 data-i18n="layout_h">Change CJLO's layout</h2>
+        <div class="in" style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn" data-theme="coral" type="button">Coral</button>
+          <button class="btn" data-theme="concordia" type="button">Concordia</button>
+          <button class="btn" data-theme="midnight" type="button">Midnight</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="badges" aria-hidden="true"><span class="badge">1690 kHz AM</span><span class="badge b2">LIVE FROM LOYOLA</span><span class="badge b3">20 YEARS</span><span class="badge">MTL · QC</span></div>
+  <footer>
+    <div>CJLO 1690AM · <span data-i18n="cur">Concordia University Radio</span> · 7141 Sherbrooke W., CC-430, Montréal</div>
+    <div style="margin-top:4px"><a href="https://www.cjlo.com/charts" data-i18n="v_charts">Charts</a> | <a href="https://www.cjlo.com/sessions" data-i18n="v_sessions">Live sessions</a> | <a href="https://www.cjlo.com/contact-us" data-i18n="f_contact">Contact</a></div>
+  </footer>
+</div>
+
+<script>
+const SCHED = [[0,0,60,"Floydian Slip","Rock/Alt","/shows/floydian-slip"],[0,60,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[0,360,480,"Sun Ra, Sun Rise","Jazz","/shows/sun-ra-sun-rise"],[0,480,540,"The Gigi Brown Experience","Rock/Alt","/shows/the-gigi-brown-experience"],[0,540,600,"REVC","Rock/Alt","/shows/revc"],[0,600,720,"Rigged Sessions","RPM","/shows/rigged-sessions"],[0,720,780,"Brave Little Emo Girl","Rock/Alt","/shows/brave-little-emo-girl"],[0,780,840,"Northern Stagelights / Psychs In The Sixty","Rock/Alt","/shows/northern-stagelights"],[0,840,900,"Methods and Madness","Talk","/shows/methods-and-madness"],[0,900,960,"Fukubukuro","Specialty","/shows/fukubukuro"],[0,960,1080,"Grade A Explosives","Metal","/shows/grade-a-explosives"],[0,1080,1140,"Bill's Country & Western Favourites","Specialty","/shows/bills-country-and-western-favourites"],[0,1140,1200,"No Boundaries","Specialty","/shows/no-boundaries"],[0,1200,1260,"Towards A Common Horizon","Talk","/shows/towards-a-common-horizon"],[0,1260,1320,"Afro Archives","World","/shows/afro-archives"],[0,1320,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[1,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[1,360,480,"Experiments","Specialty","/shows/experiments"],[1,480,540,"Trawling the Megahertz","Specialty","/shows/trawling-the-megahertz"],[1,540,600,"Death of the Midrange","Talk","/shows/death-of-the-midrange"],[1,600,660,"Democracy Now","Talk","/shows/democracy-now"],[1,660,720,"I Think You Might Like This","Specialty","/shows/i-think-you-might-like-this"],[1,720,780,"Twang City","Specialty","/shows/twang-city"],[1,780,840,"The Tommy John Show","Talk","/shows/the-tommy-john-show"],[1,840,900,"L'Organe à la radio","Specialty","/shows/lorgane-a-la-radio"],[1,900,960,"Whip Appeal","Hip Hop","/shows/whip-appeal"],[1,960,1020,"Dreamscapes","Talk","/shows/dreamscapes"],[1,1020,1080,"The Pressure Drop","Rock/Alt","/shows/the-pressure-drop"],[1,1080,1140,"Voice of the Voiceless","Talk","/shows/voice-of-the-voiceless"],[1,1140,1200,"Monday Mass with Father Kate","Rock/Alt","/shows/monday-mass-with-father-kate"],[1,1200,1260,"In The Garage","Rock/Alt","/shows/in-the-garage"],[1,1260,1320,"LEKTOR DECODER","Rock/Alt","/shows/lektor-decoder"],[1,1320,1380,"Past Tense","Rock/Alt","/shows/past-tense"],[1,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[2,360,540,"Hip's Time to Wake Hop","Hip Hop","/shows/hips-time-to-wake-hop"],[2,540,600,"At The Movies","Specialty","/shows/at-the-movies"],[2,600,660,"Democracy Now","Talk","/shows/democracy-now"],[2,660,720,"Mirror Journal","RPM","/shows/mirror-journal"],[2,720,780,"World Beat News","World","/shows/world-beat-news"],[2,780,840,"Shaking the Habitual","Specialty","/shows/shaking-the-habitual"],[2,840,900,"Something for the Mood","Rock/Alt","/shows/something-for-the-mood"],[2,900,960,"Sonic Lit: A SpokenWeb Radio Show","Specialty","/shows/sonic-lit-a-spokenweb-radio-show"],[2,960,1020,"Bikini Brrroadcast","Rock/Alt","/shows/bikini-brrroadcast"],[2,1020,1080,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,1080,1140,"feminemix","RPM","/shows/feminemix"],[2,1140,1200,"Ashes to Ashes","Rock/Alt","/shows/ashes-to-ashes"],[2,1200,1260,"Hittin' All The Bases","Rock/Alt","/shows/hittin-all-the-bases"],[2,1260,1320,"NSIDE!","Specialty","/shows/nside"],[2,1320,1380,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,1380,1440,"Turn Off The Lights","Rock/Alt","/shows/turn-off-the-lights"],[3,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[3,360,480,"Morning Electro-shock","RPM","/shows/morning-electro-shock"],[3,480,540,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[3,540,600,"Are We There Yet?","Rock/Alt","/shows/are-we-there-yet"],[3,600,660,"Democracy Now","Talk","/shows/democracy-now"],[3,660,720,"Code Switch","Specialty","/shows/code-switch"],[3,720,780,"North-South Hockey","Talk","/shows/north-south-hockey"],[3,780,840,"The Fluid Mosaic","Rock/Alt","/shows/the-fluid-mosaic"],[3,840,900,"Cherry Vamp and the Sonic Coffin","Rock/Alt","/shows/cherry-vamp-and-the-sonic-coffin"],[3,900,960,"Patch Notes","RPM","/shows/patch-notes"],[3,960,1020,"Borderline","World","/shows/borderline"],[3,1020,1080,"Advice By The Fireplace","Talk","/shows/advice-by-the-fireplace"],[3,1080,1140,"The New Consonance","Specialty","/shows/the-new-consonance"],[3,1140,1260,"BVST","Rock/Alt","/shows/bvst"],[3,1260,1320,"There's a Synth in the House","RPM","/shows/theres-a-synth-in-the-house"],[3,1320,1380,"Sippin' On Sound","Specialty","/shows/sippin-on-sound"],[3,1380,1440,"The Night Watch","Specialty","/shows/the-night-watch"],[4,0,60,"The Night Watch","Specialty","/shows/the-night-watch"],[4,60,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[4,360,540,"Daydream Nation","Rock/Alt","/shows/daydream-nation"],[4,540,600,"Everything Everywhere","Specialty","/shows/everything-everywhere"],[4,600,660,"Democracy Now","Talk","/shows/democracy-now"],[4,660,720,"Chi and Ri","Hip Hop","/shows/chi-and-ri"],[4,720,780,"The Power Hour","Talk","/shows/the-power-hour"],[4,780,840,"What's Happening in NDG","Talk","/shows/whats-happening-in-ndg"],[4,840,900,"Secondhand Sounds","Specialty","/shows/secondhand-sounds"],[4,900,960,"Weirdo Rippers","Specialty","/shows/weirdo-rippers"],[4,960,1080,"Hooked On Sonics","Rock/Alt","/shows/hooked-on-sonics"],[4,1080,1140,"Unheard Of","Rock/Alt","/shows/unheard-of"],[4,1140,1200,"Electric Messiah","Metal","/shows/electric-messiah"],[4,1200,1260,"Maiden Voyage / Beatnik Boy: Mixtape","Rock/Alt","/shows/maiden-voyage"],[4,1260,1320,"The 514","Rock/Alt","/shows/the-514"],[4,1320,1380,"How Did We Get Here?","Specialty","/shows/how-did-we-get-here"],[4,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[5,0,120,"Finally Midnight","Specialty","/shows/finally-midnight"],[5,120,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[5,360,540,"Wake up Folks!","Specialty","/shows/wake-up-folks"],[5,540,600,"CJLO News Hour","Talk","/shows/cjlo-news-hour"],[5,600,660,"Democracy Now","Talk","/shows/democracy-now"],[5,660,720,"The Alley","Rock/Alt","/shows/the-alley"],[5,720,780,"Charts & Crafts","Specialty","/shows/charts-and-crafts"],[5,780,840,"the castle","Rock/Alt","/shows/the-castle"],[5,840,900,"Spiral Bound","Rock/Alt","/shows/spiral-bound"],[5,900,960,"Dead Beats","Rock/Alt","/shows/dead-beats"],[5,960,1020,"Tapeworms","Specialty","/shows/tapeworms"],[5,1020,1080,"The Groove Master's Hour","Rock/Alt","/shows/the-groove-masters-hour"],[5,1080,1200,"The Go-Go Radio Magic Show","Rock/Alt","/shows/the-go-go-radio-magic-show"],[5,1200,1260,"El Encuentro Latino","Talk","/shows/el-encuentro-latino"],[5,1260,1320,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[5,1320,1380,"The Come Up","Hip Hop","/shows/the-come-up"],[5,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[6,360,540,"World-Up'","World","/shows/world-up"],[6,540,600,"The Live Wire Show","World","/shows/the-live-wire-show"],[6,600,720,"Gospel Unlimited","Specialty","/shows/gospel-unlimited"],[6,720,840,"Anatomy of Caribbean Music","World","/shows/anatomy-of-caribbean-music"],[6,840,960,"Caribbean Callaloo","World","/shows/caribbean-callaloo"],[6,960,1020,"Mi Dun Talk","World","/shows/mi-dun-talk"],[6,1020,1080,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,1080,1140,"The Limelight","Hip Hop","/shows/the-limelight"],[6,1140,1200,"Screamers","Rock/Alt","/shows/screamers"],[6,1200,1260,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,1260,1320,"The Spacious Astrology Playlist","Rock/Alt","/shows/the-spacious-astrology-playlist"],[6,1320,1440,"Brave New Jams","Rock/Alt","/shows/brave-new-jams"]];
+const T={
+en:{concept:"Concept design for discussion: not the official CJLO website. The live audio is CJLO's real stream.",n_home:"Home",n_sched:"Schedule",n_friends:"Top 8",n_blog:"Blog",n_shout:"Shoutbox",n_donate:"Donate",tagline:"radio libre, all night long",kind:"Campus & community radio",online:"ONLINE NOW!",mood:"Mood:",mood_v:"on air",listening:"Listening now:",view:"View my:",v_sessions:"Live sessions",v_charts:"Charts",v_archive:"Archive",contacting:"Contacting CJLO",c_listen:"Listen live",c_call:"Call requests",c_text:"Text requests",c_donate:"Donate",c_vol:"Volunteer",c_submit:"Send music",c_mail:"Message",c_visit:"Visit us",url:"CJLO's URL",interests:"CJLO's Interests",i_general:"General",i_general_v:"Montréal music scenes, campus life, community news, live sessions, record stores, staying up too late",i_music:"Music",i_music_v:"Rock/alt, metal, jazz, hip hop, electronic, world, country, emo, psych, whatever you haven't heard yet",i_talk:"Talk",i_talk_v:"Science, film, climate, local politics, hockey",i_home:"Home",i_home_v:"Room CC-430, Loyola Campus, 7141 Sherbrooke St. West",onair_h:"CJLO is on the air right now!",np:"Now playing:",song_ph:"song titles show up here when the studio sends them",about_h:"About CJLO",about_p1:"Hey! We're CJLO 1690AM, Concordia University's radio station, broadcasting from the Loyola campus in Montréal's west end. Volunteer DJs and hosts run almost everything you hear.",about_p2:"Turn us on for weird and wonderful music, local news and talk, and live sessions from bands passing through town.",meet_h:"Who CJLO'd like to meet",meet_p:"Local bands with a demo, students who want to learn radio, night owls, record collectors, and anyone with a show idea. Come say hi on the 4th floor.",top8_h:"CJLO's Top 8",top8_sub:"coming up next",lineup_h:"The lineup",blog_h:"CJLO's latest blog entries",cat_int:"Interviews",cat_con:"Concert reviews",blog_all:"[View all blog entries]",shout_h:"Shoutbox",shout_l:"Leave a shout for your fave show:",shout_note:"In this concept, shouts stay on your device only.",shout_btn:"Post shout",layout_h:"Change CJLO's layout",cur:"Concordia University Radio",f_contact:"Contact",
+ tap:"Press play to tune in",tuning:"Tuning in…",live:"Streaming live from Loyola",buffering:"Buffering…",fail:"Couldn't start, press play again",down:"Stream unavailable",play:"Play live stream",pause:"Pause live stream",livetag:"LIVE",you:"You",justnow:"just now",onairnow:"ON AIR NOW",
+ days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],dayn:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],genre:{"Rock/Alt":"Rock/Alt","Specialty":"Specialty","Talk":"Talk","Hip Hop":"Hip Hop","RPM":"Electronic","Metal":"Metal","World":"World","Jazz":"Jazz"},
+ marq:"★ welcome to CJLO 1690AM's page ★ Concordia University Radio ★ live from the Loyola campus, Montréal ★ requests: 514-848-7471 ★ 20 years on the air ★"},
+fr:{concept:"Maquette conceptuelle pour discussion : pas le site officiel de CJLO. L'audio en direct est le vrai flux de CJLO.",n_home:"Accueil",n_sched:"Horaire",n_friends:"Top 8",n_blog:"Blogue",n_shout:"Babillard",n_donate:"Faire un don",tagline:"radio libre, toute la nuit",kind:"Radio étudiante et communautaire",online:"EN LIGNE!",mood:"Humeur :",mood_v:"en ondes",listening:"À l'écoute :",view:"Voir mes :",v_sessions:"Sessions en direct",v_charts:"Palmarès",v_archive:"Archives",contacting:"Joindre CJLO",c_listen:"Écouter en direct",c_call:"Appeler le studio",c_text:"Texter le studio",c_donate:"Faire un don",c_vol:"Bénévolat",c_submit:"Envoyer de la musique",c_mail:"Message",c_visit:"Nous visiter",url:"L'adresse de CJLO",interests:"Les intérêts de CJLO",i_general:"Général",i_general_v:"Les scènes musicales de Montréal, la vie de campus, les nouvelles communautaires, les sessions en direct, les disquaires, se coucher trop tard",i_music:"Musique",i_music_v:"Rock/alt, métal, jazz, hip-hop, électro, musiques du monde, country, emo, psych, tout ce que vous n'avez pas encore entendu",i_talk:"Parlé",i_talk_v:"Science, cinéma, climat, politique locale, hockey",i_home:"Chez nous",i_home_v:"Local CC-430, campus Loyola, 7141, rue Sherbrooke Ouest",onair_h:"CJLO est en ondes en ce moment!",np:"En ce moment :",song_ph:"les titres s'affichent ici quand le studio les envoie",about_h:"À propos de CJLO",about_p1:"Salut! Ici CJLO 1690AM, la radio de l'Université Concordia, en direct du campus Loyola dans l'ouest de Montréal. Presque tout ce que vous entendez est animé par des bénévoles.",about_p2:"Syntonisez-nous pour de la musique étrange et merveilleuse, des nouvelles et des émissions parlées locales, et des sessions en direct avec des groupes de passage.",meet_h:"Qui CJLO aimerait rencontrer",meet_p:"Des groupes locaux avec un démo, des étudiants qui veulent apprendre la radio, des oiseaux de nuit, des collectionneurs de vinyles et toute personne avec une idée d'émission. Venez nous saluer au 4e étage.",top8_h:"Le Top 8 de CJLO",top8_sub:"à venir",lineup_h:"La programmation",blog_h:"Les derniers billets de CJLO",cat_int:"Entrevues",cat_con:"Critiques de concerts",blog_all:"[Voir tous les billets]",shout_h:"Babillard",shout_l:"Laissez un mot pour votre émission préférée :",shout_note:"Dans cette maquette, vos messages restent sur votre appareil.",shout_btn:"Publier",layout_h:"Changer le look de CJLO",cur:"Radio de l'Université Concordia",f_contact:"Contact",
+ tap:"Appuyez sur lecture pour écouter",tuning:"Connexion…",live:"En direct de Loyola",buffering:"Chargement…",fail:"Impossible de démarrer, réessayez",down:"Flux indisponible",play:"Écouter en direct",pause:"Mettre en pause",livetag:"EN DIRECT",you:"Vous",justnow:"à l'instant",onairnow:"EN ONDES",
+ days:["dim","lun","mar","mer","jeu","ven","sam"],dayn:["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],genre:{"Rock/Alt":"Rock/Alt","Specialty":"Spécialisé","Talk":"Parlé","Hip Hop":"Hip-hop","RPM":"Électro","Metal":"Métal","World":"Musiques du monde","Jazz":"Jazz"},
+ marq:"★ bienvenue sur la page de CJLO 1690AM ★ Radio de l'Université Concordia ★ en direct du campus Loyola, Montréal ★ demandes : 514-848-7471 ★ 20 ans en ondes ★"}};
+const store={get(k,d){try{return localStorage.getItem(k)??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let LANG=store.get("cjlolang","en");const t=k=>T[LANG][k];const gname=g=>T[LANG].genre[g]||g;
+const DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hhmm=m=>{m=((m%1440)+1440)%1440;const v=String(Math.floor(m/60)).padStart(2,"0")+":"+String(m%60).padStart(2,"0");return LANG==="fr"?v.replace(":"," h "):v};
+function mtl(){const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"America/Toronto",weekday:"short",hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(new Date()).map(x=>[x.type,x.value]));return{day:DAYS.indexOf(p.weekday.slice(0,3)),min:(+p.hour%24)*60+(+p.minute)}}
+const slots=SCHED.map(([d,s,e,tt,g,u],i)=>({i,d,s,e,t:tt,g,u:"https://www.cjlo.com"+u}));
+const current=()=>{const n=mtl();return slots.find(x=>x.d===n.day&&n.min>=x.s&&n.min<x.e)||null};
+
+/* pixel avatar (5x5 mirrored identicon) */
+function hash(str){let h=2166136261;for(const ch of str){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function avatar(seed){const h=hash(seed);const hue=h%360;const fg=`hsl(${hue} 80% 50%)`,bg=`hsl(${(hue+180)%360} 70% 92%)`;let s=`<svg viewBox="0 0 5 5" aria-hidden="true" shape-rendering="crispEdges"><rect width="5" height="5" fill="${bg}"/>`;
+ for(let y=0;y<5;y++)for(let x=0;x<3;x++){if((h>>(y*3+x))&1){s+=`<rect x="${x}" y="${y}" width="1" height="1" fill="${fg}"/>`;if(x<2)s+=`<rect x="${4-x}" y="${y}" width="1" height="1" fill="${fg}"/>`}}return s+"</svg>"}
+
+let selDay=mtl().day;
+function render(){
+ const n=mtl(),c=current();
+ document.getElementById("lcd").textContent=c?`${t("onairnow")}: ${c.t} · ${hhmm(c.s)}–${hhmm(c.e)} · ${gname(c.g)}`:"CJLO 1690AM";
+ const next=slots.filter(x=>(x.d===n.day&&x.s>n.min)||x.d===(n.day+1)%7).filter(x=>!/Alternative Mega Mix|CJLO Late Night|Democracy Now/i.test(x.t));
+ const seen=new Set();const top=[];for(const x of next){if(!seen.has(x.t)){seen.add(x.t);top.push(x)}if(top.length===8)break}
+ document.getElementById("top8grid").innerHTML=top.map(x=>`<a href="${x.u}">${avatar(x.t)}<span>${esc(x.t)}</span><span class="small" style="text-decoration:none;font-weight:normal;color:var(--text)">${x.d!==n.day?t("days")[x.d]+" ":""}${hhmm(x.s)}</span></a>`).join("");
+ document.getElementById("days").innerHTML=t("days").map((d,i)=>`<button data-d="${i}" aria-pressed="${i===selDay}">${d}</button>`).join("");
+ document.querySelectorAll("#days button").forEach(b=>b.onclick=()=>{selDay=+b.dataset.d;render()});
+ document.getElementById("sched").innerHTML=slots.filter(x=>x.d===selDay).map(x=>{const live=c&&c.i===x.i;return`<tr class="${live?"live":""}"><td style="white-space:nowrap">${hhmm(x.s)}–${hhmm(x.e)}</td><td><a href="${x.u}">${esc(x.t)}</a>${live?` <b class="blink" style="color:#d00">${t("livetag")}!</b>`:""}</td><td class="small">${esc(gname(x.g))}</td></tr>`}).join("");
+}
+function applyLang(){document.documentElement.lang=LANG;document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[LANG][el.dataset.i18n];if(v!=null)el.textContent=v});
+ if(window.__song)document.getElementById("song").textContent=window.__song;
+ document.getElementById("marq").textContent=t("marq");document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===LANG));
+ setStatus(STATUS);paint();render();renderShouts()}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>{LANG=b.dataset.lang;store.set("cjlolang",LANG);applyLang()});
+
+/* themes */
+function setTheme(th){document.body.classList.remove("t-concordia","t-midnight");if(th!=="coral")document.body.classList.add("t-"+th);store.set("cjlotheme",th);document.querySelectorAll("[data-theme]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.theme===th))}
+document.querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>setTheme(b.dataset.theme));setTheme(store.get("cjlotheme","coral"));
+
+/* shoutbox (local only) */
+function getShouts(){try{return JSON.parse(store.get("cjloshouts","[]"))}catch(e){return[]}}
+function renderShouts(){const list=getShouts();document.getElementById("shouts").innerHTML=list.map(s=>`<div class="s">${avatar("you")}<div><b>${t("you")}</b> <span class="small">· ${new Date(s.at).toLocaleString(LANG==="fr"?"fr-CA":"en-CA",{dateStyle:"medium",timeStyle:"short"})}</span><div style="margin-top:2px;white-space:pre-wrap">${esc(s.text)}</div></div></div>`).join("")}
+document.getElementById("shoutbtn").onclick=()=>{const el=document.getElementById("shoutin");const v=el.value.trim();if(!v)return;const list=getShouts();list.unshift({text:v,at:Date.now()});store.set("cjloshouts",JSON.stringify(list.slice(0,20)));el.value="";renderShouts()};
+
+/* audio */
+const STREAM="https://cjlo.radioca.st/stream";const audio=new Audio();audio.preload="none";let want=false,STATUS="tap";
+function setStatus(k){STATUS=k;document.getElementById("pstatus").textContent=t(k)}
+function paint(){const on=want&&!audio.paused;document.body.classList.toggle("playing",on);document.querySelectorAll(".player .js-play").forEach(b=>{b.setAttribute("aria-label",on?t("pause"):t("play"));b.querySelector(".ic-play").style.display=on?"none":"";b.querySelector(".ic-pause").style.display=on?"":"none"})}
+async function toggle(){if(want&&!audio.paused){want=false;audio.pause();audio.removeAttribute("src");audio.load();setStatus("tap");paint();return}
+ want=true;setStatus("tuning");audio.src=STREAM+"?t="+Date.now();try{await audio.play();setStatus("live")}catch(e){want=false;setStatus("fail")}paint()}
+audio.addEventListener("playing",()=>{setStatus("live");paint()});audio.addEventListener("waiting",()=>setStatus("buffering"));audio.addEventListener("error",()=>{if(want){want=false;setStatus("down");paint()}});
+document.querySelectorAll(".js-play").forEach(b=>b.addEventListener("click",toggle));
+async function stats(){try{const r=await fetch("https://cjlo.radioca.st/stats?json=1&_="+Date.now());const j=await r.json();const st=(j.songtitle||"").trim();if(st&&!/^cjlo\b/i.test(st)){window.__song=st;document.getElementById("song").textContent=st}
+ if(typeof j.currentlisteners==="number"){document.getElementById("lcount").innerHTML=`<span class="counter">${String(j.currentlisteners).padStart(4,"0")}</span>`;document.getElementById("listeners").style.display=""}}catch(e){}}
+
+applyLang();stats();setInterval(render,60000);setInterval(stats,30000);
+</script>
+</body>
+</html>
