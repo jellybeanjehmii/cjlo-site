@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CJLO 1690AM — Modernized Site Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0E11;--card:#17171C;--card2:#1F1F25;--line:#26262D;--text:#F4F2EE;--dim:#A3A1A8;--faint:#8E8B95;--accent:#F26B47;--ink:#16110F}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;padding-bottom:84px}
+a{color:var(--accent);text-decoration:none}a:hover{color:#FF8A6A}
+h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.concept{background:#2A2A31;color:#D8D5DC;font-size:12px;font-weight:600;text-align:center;padding:7px 16px}
+header{border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.top img{height:46px;display:block}
+nav.main{display:flex;gap:20px;flex-wrap:wrap;flex:1 1 480px;font-size:14px;font-weight:600}
+nav.main a{color:var(--text)}nav.main a:hover{color:var(--accent)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:700;font-size:14px;padding:11px 18px;border:0;cursor:pointer;font-family:inherit}
+.pill.primary{background:var(--accent);color:var(--ink)}.pill.primary:hover{color:var(--ink);filter:brightness(1.08)}
+.pill.ghost{background:transparent;color:var(--text);border:1px solid #3A3A43}
+.pill.soft{background:#2A2A31;color:var(--text)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px}
+.hero{display:flex;gap:20px;flex-wrap:wrap;padding-top:32px}
+.player{flex:999 1 620px;min-width:0;padding:32px;display:flex;flex-direction:column;gap:20px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--ink);font-weight:800;font-size:12px;letter-spacing:1.5px;padding:6px 12px;border-radius:999px}
+.badge i{width:8px;height:8px;border-radius:4px;background:var(--ink);display:inline-block;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.play{width:104px;height:104px;border-radius:52px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 10px 40px rgba(242,107,71,.35)}
+.play:hover{filter:brightness(1.08)}
+.showtitle{font-size:clamp(34px,5vw,56px);line-height:1.02;margin:0 0 8px;letter-spacing:-1.5px}
+.np{background:var(--card2);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lbl{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--faint)}
+.seg{display:flex;gap:6px;background:var(--card2);padding:4px;border-radius:999px;flex-wrap:wrap}
+.seg button{border:0;cursor:pointer;font:700 13px Inter,sans-serif;padding:9px 14px;border-radius:999px;min-height:36px;background:transparent;color:#B9B6BE}
+.seg button[aria-pressed="true"]{background:var(--text);color:var(--ink)}
+aside.next{flex:1 1 320px;padding:26px;display:flex;flex-direction:column;gap:4px}
+.row{display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--text)}
+.bar{width:4px;align-self:stretch;min-height:34px;border-radius:2px;flex:0 0 auto}
+.sec{padding-top:40px}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.sechead h2{font-size:26px;margin:0}
+.grid{display:grid;gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--text);display:flex;flex-direction:column;gap:6px}
+.tile:hover{border-color:#3A3A43;color:var(--text)}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:6px 0 14px}
+.days button{border:0;cursor:pointer;background:var(--card);color:#B9B6BE;font:700 14px Inter,sans-serif;padding:12px 0;border-radius:12px;min-height:44px}
+.days button[aria-pressed="true"]{background:var(--accent);color:var(--ink)}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.legend span{display:inline-flex;align-items:center;gap:6px;border:1px solid #2E2E36;border-radius:999px;padding:6px 12px;font-size:13px;color:#B9B6BE}
+.legend b{width:10px;height:10px;border-radius:5px;display:inline-block}
+.slot{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:14px 14px 14px 0;border-bottom:1px solid var(--line)}
+.slot.live{background:var(--card);border-radius:12px}
+.slot .t{width:150px;flex:0 0 auto}
+.slot .g{font-size:12px;font-weight:800;letter-spacing:1px;color:#B9B6BE;width:90px;text-align:right}
+.ph{aspect-ratio:16/10;border-radius:16px;background:var(--card2);border:1px dashed #3A3A43;display:flex;align-items:center;justify-content:center;color:#6E6C75;font-size:13px}
+.band{background:var(--accent);color:var(--ink);border-radius:24px;padding:34px;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+footer{padding:40px 0 24px;display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between;color:var(--dim);font-size:14px}
+footer a{color:var(--dim)}
+.dock{position:fixed;left:0;right:0;bottom:0;background:#1A1A1F;border-top:1px solid #2E2E36;z-index:5}
+.dock .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.dock .mini{width:46px;height:46px;border-radius:23px;background:var(--accent);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.live-tag{background:var(--accent);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:1px;padding:3px 7px;border-radius:5px}
+.sr{position:absolute;left:-9999px}
+@media (max-width:700px){.player{padding:22px}.play{width:84px;height:84px}.slot .g{display:none}.slot .t{width:96px}.top img{height:38px}nav.main{gap:14px;font-size:13px}.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="concept">Concept mockup for discussion — not the official CJLO website. Live audio is CJLO’s real stream; links go to cjlo.com.</div>
+<header>
+  <div class="wrap top">
+    <a href="#" aria-label="CJLO 1690AM home"><img src="logo.png" alt="CJLO 1690AM, 20 years"></a>
+    <nav class="main" aria-label="Main">
+      <a href="#listen">On Air</a><a href="#schedule">Schedule</a><a href="#magazine">Magazine</a>
+      <a href="https://www.cjlo.com/charts">Charts</a><a href="https://www.cjlo.com/sessions">Live Sessions</a>
+      <a href="https://www.cjlo.com/about">About</a><a href="https://www.cjlo.com/volunteer">Volunteer</a>
+    </nav>
+    <a class="pill primary" href="https://www.cjlo.com/donate">Donate</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="listen" class="hero" aria-label="Live player">
+    <div class="card player">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <span class="badge"><i></i>ON AIR NOW</span>
+        <span id="slotline" style="color:var(--dim);font-size:14px"></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:26px;flex-wrap:wrap">
+        <button class="play js-play" type="button" aria-label="Play live stream" style="border:0;cursor:pointer">
+          <svg class="ic-play" width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#16110F"/></svg>
+          <svg class="ic-pause" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><rect x="6" y="5" width="4" height="14" rx="1" fill="#16110F"/><rect x="14" y="5" width="4" height="14" rx="1" fill="#16110F"/></svg>
+        </button>
+        <div style="flex:1 1 300px;min-width:0">
+          <h1 class="showtitle" id="showtitle">CJLO 1690AM</h1>
+          <p style="margin:0;color:#B9B6BE;font-size:16px" id="showsub">Concordia University Radio · Montréal</p>
+        </div>
+      </div>
+      <div class="np">
+        <div style="width:46px;height:46px;border-radius:10px;background:#2A2A31;display:flex;align-items:center;justify-content:center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F26B47" stroke-width="2" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div style="flex:1 1 220px;min-width:0">
+          <div class="lbl">NOW PLAYING</div>
+          <div style="font-size:16px;font-weight:600;margin-top:3px"><span id="songtitle">Song titles appear here once the studio sends them</span></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:13px;color:var(--dim);font-weight:600">Stream quality</span>
+        <div class="seg" role="group" aria-label="Stream quality">
+          <button data-q="auto" aria-pressed="true">Auto</button><button data-q="saver" aria-pressed="false">Data saver</button><button data-q="hifi" aria-pressed="false">Hi‑fi</button>
+        </div>
+        <span id="qnote" style="font-size:13px;color:var(--faint)"></span>
+      </div>
+    </div>
+    <aside class="card next" aria-label="Up next">
+      <h2 style="font-size:22px;margin:0 0 8px">Up next</h2>
+      <div id="upnext"></div>
+      <a href="#schedule" style="margin-top:10px;font-weight:700;font-size:14px">Full schedule →</a>
+      <div style="margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px">
+        <div style="font-weight:700">Requests?</div>
+        <div style="color:var(--dim);font-size:14px">Call or text the studio: <b style="color:var(--text)">514-848-7471</b></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="pill soft" href="tel:+15148487471">Call</a><a class="pill soft" href="sms:+15148487471">Text</a></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="sec" aria-labelledby="anywhere">
+    <div class="sechead"><h2 id="anywhere">Listen anywhere</h2></div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+      <div class="tile"><b>CJLO app</b><span style="color:var(--dim);font-size:13px">iPhone &amp; Android, with a song tracker</span></div>
+      <div class="tile"><b>Radioplayer Canada</b><span style="color:var(--dim);font-size:13px">With hundreds of Canadian stations</span></div>
+      <div class="tile"><b>TuneIn</b><span style="color:var(--dim);font-size:13px">Web, apps and connected devices</span></div>
+      <div class="tile"><b>Smart speakers</b><span style="color:var(--dim);font-size:13px">Ask for CJLO 1690AM</span></div>
+      <div class="tile"><b>In the car</b><span style="color:var(--dim);font-size:13px">Apple CarPlay &amp; Android Auto</span></div>
+      <div class="tile"><b>Podcasts</b><span style="color:var(--dim);font-size:13px">Shows after they air</span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="catchup">
+    <div class="sechead"><h2 id="catchup">Missed it? Catch up</h2><a href="https://www.cjlo.com/episode-archive" style="font-weight:700;font-size:14px">Episode archive →</a></div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+      <a class="tile" href="https://www.cjlo.com/shows/bikini-brrroadcast/episode-10112616" style="flex-direction:row;align-items:center;gap:14px"><span class="mini-ic"></span><span><b style="display:block">Bikini Brrroadcast</b><span style="color:var(--dim);font-size:13px">Tue, Nov 10 · 4:00 PM</span></span></a>
+      <a class="tile" href="https://www.cjlo.com/shows/at-movies/episode-10112609" style="flex-direction:row;align-items:center;gap:14px"><span class="mini-ic"></span><span><b style="display:block">At The Movies</b><span style="color:var(--dim);font-size:13px">Tue, Nov 10 · 9:00 AM</span></span></a>
+      <a class="tile" href="https://www.cjlo.com/shows/past-tense/episode-09112622" style="flex-direction:row;align-items:center;gap:14px"><span class="mini-ic"></span><span><b style="display:block">Past Tense</b><span style="color:var(--dim);font-size:13px">Mon, Nov 9 · 10:00 PM</span></span></a>
+      <a class="tile" href="https://www.cjlo.com/shows/tommy-john-show/episode-09112614" style="flex-direction:row;align-items:center;gap:14px"><span class="mini-ic"></span><span><b style="display:block">The Tommy John Show</b><span style="color:var(--dim);font-size:13px">Mon, Nov 9 · 2:00 PM</span></span></a>
+    </div>
+  </section>
+
+  <section id="schedule" class="sec" aria-labelledby="schedh">
+    <div class="sechead"><h2 id="schedh">Schedule</h2><span style="color:var(--dim);font-size:14px">Montréal time · shows sharing a slot alternate weeks</span></div>
+    <div class="days" role="group" aria-label="Day" id="days"></div>
+    <div class="legend" id="legend"></div>
+    <div id="slots" role="list"></div>
+  </section>
+
+  <section id="magazine" class="sec" aria-labelledby="magh">
+    <div class="sechead"><h2 id="magh">From the Magazine</h2><a href="https://www.cjlo.com/blog" style="font-weight:700;font-size:14px">All stories →</a></div>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+      <a href="https://www.cjlo.com/articles/diles-que-no-me-maten-escrito-agua-tour-2026-at-casa-del-popolo" style="color:var(--text);display:flex;flex-direction:column;gap:10px"><div class="ph">Article photo</div><span style="color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1.2px">INTERVIEWS</span><span style="font-family:'Space Grotesk';font-size:21px;font-weight:700;line-height:1.2">Diles que no me maten Escrito en Agua tour 2026 at Casa del Popolo</span><span style="color:var(--dim);font-size:14px">Pamela Subia · Nov 13, 2026</span></a>
+      <a href="https://www.cjlo.com/blog" style="color:var(--text);display:flex;flex-direction:column;gap:10px"><div class="ph">Article photo</div><span style="color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1.2px">CONCERT REVIEWS</span><span style="font-family:'Space Grotesk';font-size:21px;font-weight:700;line-height:1.2">Jackie Evans’ Sold Out Piano Bar</span><span style="color:var(--dim);font-size:14px">Micaela Kira · Nov 13, 2026</span></a>
+      <a href="https://www.cjlo.com/blog" style="color:var(--text);display:flex;flex-direction:column;gap:10px"><div class="ph">Article photo</div><span style="color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1.2px">CONCERT REVIEWS</span><span style="font-family:'Space Grotesk';font-size:21px;font-weight:700;line-height:1.2">A GOODTIME with The Darcy’s</span><span style="color:var(--dim);font-size:14px">Micaela Kira · Nov 9, 2026</span></a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="band">
+      <div style="flex:1 1 400px"><h2 style="font-size:30px;margin:0 0 6px;letter-spacing:-.5px">20 years of independent radio in Montréal</h2><p style="margin:0;font-size:16px">Run by volunteers, supported by listeners. Keep campus radio on the air.</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="pill" style="background:#16110F;color:#F4F2EE" href="https://www.cjlo.com/donate">Donate</a><a class="pill" style="border:2px solid #16110F;color:#16110F" href="https://www.cjlo.com/volunteer">Volunteer</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="display:flex;flex-direction:column;gap:6px"><img src="logo.png" alt="CJLO 1690AM" style="height:38px;align-self:flex-start"><span>Concordia University Radio · Montréal</span></div>
+    <nav aria-label="Footer" style="display:flex;gap:18px;flex-wrap:wrap"><a href="https://www.cjlo.com/contact-us">Contact</a><a href="https://www.cjlo.com/our-location">Our location</a><a href="https://www.cjlo.com/advertise">Advertise</a><a href="https://www.cjlo.com/submit-music">Submit music</a></nav>
+  </footer>
+</main>
+
+<div class="dock" aria-label="Live player bar">
+  <div class="wrap">
+    <button class="mini js-play" type="button" aria-label="Play live stream" style="border:0;cursor:pointer"><svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#16110F"/></svg><svg class="ic-pause" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><rect x="6" y="5" width="4" height="14" rx="1" fill="#16110F"/><rect x="14" y="5" width="4" height="14" rx="1" fill="#16110F"/></svg></button>
+    <span class="live-tag">LIVE</span>
+    <div style="flex:1;min-width:0"><div id="docktitle" style="font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">CJLO 1690AM</div><div id="docksub" class="hide-sm" style="color:var(--dim);font-size:13px"></div></div>
+    <span id="pstatus" style="color:var(--dim);font-size:13px"></span><span id="dockq" class="hide-sm" style="color:var(--dim);font-size:13px">Auto · HLS</span>
+  </div>
+</div>
+
+<script>
+const SCHED = [[0,0,60,"Floydian Slip","Rock/Alt","/shows/floydian-slip"],[0,60,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[0,360,480,"Sun Ra, Sun Rise","Jazz","/shows/sun-ra-sun-rise"],[0,480,540,"The Gigi Brown Experience","Rock/Alt","/shows/the-gigi-brown-experience"],[0,540,600,"REVC","Rock/Alt","/shows/revc"],[0,600,720,"Rigged Sessions","RPM","/shows/rigged-sessions"],[0,720,780,"Brave Little Emo Girl","Rock/Alt","/shows/brave-little-emo-girl"],[0,780,840,"Northern Stagelights / Psychs In The Sixty","Rock/Alt","/shows/northern-stagelights"],[0,840,900,"Methods and Madness","Talk","/shows/methods-and-madness"],[0,900,960,"Fukubukuro","Specialty","/shows/fukubukuro"],[0,960,1080,"Grade A Explosives","Metal","/shows/grade-a-explosives"],[0,1080,1140,"Bill's Country & Western Favourites","Specialty","/shows/bills-country-and-western-favourites"],[0,1140,1200,"No Boundaries","Specialty","/shows/no-boundaries"],[0,1200,1260,"Towards A Common Horizon","Talk","/shows/towards-a-common-horizon"],[0,1260,1320,"Afro Archives","World","/shows/afro-archives"],[0,1320,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[1,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[1,360,480,"Experiments","Specialty","/shows/experiments"],[1,480,540,"Trawling the Megahertz","Specialty","/shows/trawling-the-megahertz"],[1,540,600,"Death of the Midrange","Talk","/shows/death-of-the-midrange"],[1,600,660,"Democracy Now","Talk","/shows/democracy-now"],[1,660,720,"I Think You Might Like This","Specialty","/shows/i-think-you-might-like-this"],[1,720,780,"Twang City","Specialty","/shows/twang-city"],[1,780,840,"The Tommy John Show","Talk","/shows/the-tommy-john-show"],[1,840,900,"L'Organe à la radio","Specialty","/shows/lorgane-a-la-radio"],[1,900,960,"Whip Appeal","Hip Hop","/shows/whip-appeal"],[1,960,1020,"Dreamscapes","Talk","/shows/dreamscapes"],[1,1020,1080,"The Pressure Drop","Rock/Alt","/shows/the-pressure-drop"],[1,1080,1140,"Voice of the Voiceless","Talk","/shows/voice-of-the-voiceless"],[1,1140,1200,"Monday Mass with Father Kate","Rock/Alt","/shows/monday-mass-with-father-kate"],[1,1200,1260,"In The Garage","Rock/Alt","/shows/in-the-garage"],[1,1260,1320,"LEKTOR DECODER","Rock/Alt","/shows/lektor-decoder"],[1,1320,1380,"Past Tense","Rock/Alt","/shows/past-tense"],[1,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[2,360,540,"Hip's Time to Wake Hop","Hip Hop","/shows/hips-time-to-wake-hop"],[2,540,600,"At The Movies","Specialty","/shows/at-the-movies"],[2,600,660,"Democracy Now","Talk","/shows/democracy-now"],[2,660,720,"Mirror Journal","RPM","/shows/mirror-journal"],[2,720,780,"World Beat News","World","/shows/world-beat-news"],[2,780,840,"Shaking the Habitual","Specialty","/shows/shaking-the-habitual"],[2,840,900,"Something for the Mood","Rock/Alt","/shows/something-for-the-mood"],[2,900,960,"Sonic Lit: A SpokenWeb Radio Show","Specialty","/shows/sonic-lit-a-spokenweb-radio-show"],[2,960,1020,"Bikini Brrroadcast","Rock/Alt","/shows/bikini-brrroadcast"],[2,1020,1080,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,1080,1140,"feminemix","RPM","/shows/feminemix"],[2,1140,1200,"Ashes to Ashes","Rock/Alt","/shows/ashes-to-ashes"],[2,1200,1260,"Hittin' All The Bases","Rock/Alt","/shows/hittin-all-the-bases"],[2,1260,1320,"NSIDE!","Specialty","/shows/nside"],[2,1320,1380,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[2,1380,1440,"Turn Off The Lights","Rock/Alt","/shows/turn-off-the-lights"],[3,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[3,360,480,"Morning Electro-shock","RPM","/shows/morning-electro-shock"],[3,480,540,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[3,540,600,"Are We There Yet?","Rock/Alt","/shows/are-we-there-yet"],[3,600,660,"Democracy Now","Talk","/shows/democracy-now"],[3,660,720,"Code Switch","Specialty","/shows/code-switch"],[3,720,780,"North-South Hockey","Talk","/shows/north-south-hockey"],[3,780,840,"The Fluid Mosaic","Rock/Alt","/shows/the-fluid-mosaic"],[3,840,900,"Cherry Vamp and the Sonic Coffin","Rock/Alt","/shows/cherry-vamp-and-the-sonic-coffin"],[3,900,960,"Patch Notes","RPM","/shows/patch-notes"],[3,960,1020,"Borderline","World","/shows/borderline"],[3,1020,1080,"Advice By The Fireplace","Talk","/shows/advice-by-the-fireplace"],[3,1080,1140,"The New Consonance","Specialty","/shows/the-new-consonance"],[3,1140,1260,"BVST","Rock/Alt","/shows/bvst"],[3,1260,1320,"There's a Synth in the House","RPM","/shows/theres-a-synth-in-the-house"],[3,1320,1380,"Sippin' On Sound","Specialty","/shows/sippin-on-sound"],[3,1380,1440,"The Night Watch","Specialty","/shows/the-night-watch"],[4,0,60,"The Night Watch","Specialty","/shows/the-night-watch"],[4,60,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[4,360,540,"Daydream Nation","Rock/Alt","/shows/daydream-nation"],[4,540,600,"Everything Everywhere","Specialty","/shows/everything-everywhere"],[4,600,660,"Democracy Now","Talk","/shows/democracy-now"],[4,660,720,"Chi and Ri","Hip Hop","/shows/chi-and-ri"],[4,720,780,"The Power Hour","Talk","/shows/the-power-hour"],[4,780,840,"What's Happening in NDG","Talk","/shows/whats-happening-in-ndg"],[4,840,900,"Secondhand Sounds","Specialty","/shows/secondhand-sounds"],[4,900,960,"Weirdo Rippers","Specialty","/shows/weirdo-rippers"],[4,960,1080,"Hooked On Sonics","Rock/Alt","/shows/hooked-on-sonics"],[4,1080,1140,"Unheard Of","Rock/Alt","/shows/unheard-of"],[4,1140,1200,"Electric Messiah","Metal","/shows/electric-messiah"],[4,1200,1260,"Maiden Voyage / Beatnik Boy: Mixtape","Rock/Alt","/shows/maiden-voyage"],[4,1260,1320,"The 514","Rock/Alt","/shows/the-514"],[4,1320,1380,"How Did We Get Here?","Specialty","/shows/how-did-we-get-here"],[4,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[5,0,120,"Finally Midnight","Specialty","/shows/finally-midnight"],[5,120,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[5,360,540,"Wake up Folks!","Specialty","/shows/wake-up-folks"],[5,540,600,"CJLO News Hour","Talk","/shows/cjlo-news-hour"],[5,600,660,"Democracy Now","Talk","/shows/democracy-now"],[5,660,720,"The Alley","Rock/Alt","/shows/the-alley"],[5,720,780,"Charts & Crafts","Specialty","/shows/charts-and-crafts"],[5,780,840,"the castle","Rock/Alt","/shows/the-castle"],[5,840,900,"Spiral Bound","Rock/Alt","/shows/spiral-bound"],[5,900,960,"Dead Beats","Rock/Alt","/shows/dead-beats"],[5,960,1020,"Tapeworms","Specialty","/shows/tapeworms"],[5,1020,1080,"The Groove Master's Hour","Rock/Alt","/shows/the-groove-masters-hour"],[5,1080,1200,"The Go-Go Radio Magic Show","Rock/Alt","/shows/the-go-go-radio-magic-show"],[5,1200,1260,"El Encuentro Latino","Talk","/shows/el-encuentro-latino"],[5,1260,1320,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[5,1320,1380,"The Come Up","Hip Hop","/shows/the-come-up"],[5,1380,1440,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,0,360,"CJLO Late Night","Specialty","/shows/cjlo-late-night"],[6,360,540,"World-Up'","World","/shows/world-up"],[6,540,600,"The Live Wire Show","World","/shows/the-live-wire-show"],[6,600,720,"Gospel Unlimited","Specialty","/shows/gospel-unlimited"],[6,720,840,"Anatomy of Caribbean Music","World","/shows/anatomy-of-caribbean-music"],[6,840,960,"Caribbean Callaloo","World","/shows/caribbean-callaloo"],[6,960,1020,"Mi Dun Talk","World","/shows/mi-dun-talk"],[6,1020,1080,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,1080,1140,"The Limelight","Hip Hop","/shows/the-limelight"],[6,1140,1200,"Screamers","Rock/Alt","/shows/screamers"],[6,1200,1260,"CJLO's Alternative Mega Mix","Jazz","/shows/cjlos-alternative-mega-mix"],[6,1260,1320,"The Spacious Astrology Playlist","Rock/Alt","/shows/the-spacious-astrology-playlist"],[6,1320,1440,"Brave New Jams","Rock/Alt","/shows/brave-new-jams"]];
+const GENRE = {"Rock/Alt":"#FF4444","Specialty":"#FF9944","Talk":"#8CBA3D","Hip Hop":"#5B7BD9","RPM":"#A4A5A7","Metal":"#7D7A82","World":"#B072B0","Jazz":"#33AA77"};
+const DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"], DAYN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=m=>{m=m%1440;const h=Math.floor(m/60),mm=m%60;const ap=h<12?"AM":"PM";const h12=h%12||12;return h12+":"+String(mm).padStart(2,"0")+" "+ap};
+function mtl(){const p=Object.fromEntries(new Intl.DateTimeFormat("en-US",{timeZone:"America/Toronto",weekday:"short",hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(new Date()).map(x=>[x.type,x.value]));return{day:DAYS.indexOf(p.weekday.slice(0,3)),min:(+p.hour%24)*60+(+p.minute)}}
+const slots=SCHED.map(([d,s,e,t,g,u])=>({d,s,e,t,g,u:"https://www.cjlo.com"+u}));
+function current(){const n=mtl();return slots.find(x=>x.d===n.day&&n.min>=x.s&&n.min<x.e)||null}
+function upnext(){const n=mtl();const today=slots.filter(x=>x.d===n.day&&x.s>n.min);const tom=slots.filter(x=>x.d===(n.day+1)%7);return today.concat(tom).slice(0,4).map(x=>({...x,tomorrow:x.d!==n.day}))}
+function renderNow(){const c=current();if(c){document.getElementById("showtitle").textContent=c.t;document.getElementById("slotline").innerHTML=esc(DAYN[c.d])+" · "+fmt(c.s)+" – "+fmt(c.e)+' · <span style="color:'+(GENRE[c.g]||"#B9B6BE")+'">'+esc(c.g)+"</span>";document.getElementById("showsub").innerHTML='<a href="'+c.u+'">About this show →</a>';document.getElementById("docktitle").textContent=c.t;document.getElementById("docksub").textContent=fmt(c.s)+" – "+fmt(c.e)+" · "+c.g}
+ document.getElementById("upnext").innerHTML=upnext().map(x=>'<a class="row" href="'+x.u+'"><span class="bar" style="background:'+(GENRE[x.g]||"#6E6C75")+'"></span><span style="flex:1;min-width:0"><b style="display:block;font-size:15px">'+esc(x.t)+'</b><span style="color:var(--dim);font-size:13px">'+(x.tomorrow?"Tomorrow · ":"")+fmt(x.s)+" · "+esc(x.g)+"</span></span></a>").join("")}
+let selDay=mtl().day;
+function renderSched(){const n=mtl();const c=current();
+ document.getElementById("days").innerHTML=DAYS.map((d,i)=>'<button data-d="'+i+'" aria-pressed="'+(i===selDay)+'">'+d+"</button>").join("");
+ document.getElementById("slots").innerHTML=slots.filter(x=>x.d===selDay).map(x=>{const live=c&&c===x;return '<div role="listitem" class="slot'+(live?" live":"")+'"><span class="bar" style="background:'+(GENRE[x.g]||"#6E6C75")+'"></span><div class="t"><b style="font-size:15px">'+fmt(x.s)+'</b><div style="color:var(--faint);font-size:13px;margin-top:2px">to '+fmt(x.e)+'</div></div><div style="flex:1 1 260px;min-width:0"><a href="'+x.u+'" style="color:var(--text);font-weight:700;font-size:17px">'+esc(x.t)+'</a></div><span class="g">'+esc(x.g.toUpperCase())+"</span>"+(live?'<a class="pill primary" style="padding:8px 12px;font-size:12px" href="https://cjlo.radioca.st/stream">LIVE · Listen</a>':"")+"</div>"}).join("");
+ document.querySelectorAll("#days button").forEach(b=>b.onclick=()=>{selDay=+b.dataset.d;renderSched()})}
+document.getElementById("legend").innerHTML=Object.entries(GENRE).map(([g,c])=>'<span><b style="background:'+c+'"></b>'+esc(g)+"</span>").join("");
+const QN={auto:"Adapts to your connection (HLS)",saver:"AAC 64 kbps · about 30 MB an hour",hifi:"High-quality stream for Wi‑Fi"},QL={auto:"Auto",saver:"Data saver",hifi:"Hi‑fi"};
+function setQ(q){document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.q===q));document.getElementById("qnote").textContent=QN[q]+" · planned";document.getElementById("dockq").textContent=QL[q]+" · HLS";try{localStorage.setItem("cjloq",q)}catch(e){}}
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setQ(b.dataset.q));
+let q0="auto";try{q0=localStorage.getItem("cjloq")||"auto"}catch(e){} setQ(q0);
+document.querySelectorAll(".mini-ic").forEach(el=>el.outerHTML='<span style="width:44px;height:44px;border-radius:22px;background:#2A2A31;display:flex;align-items:center;justify-content:center;flex:0 0 auto"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#F26B47"/></svg></span>');
+const STREAM="https://cjlo.radioca.st/stream";const audio=new Audio();audio.preload="none";let wantPlay=false;
+function paint(){const on=!audio.paused&&wantPlay;document.querySelectorAll(".js-play").forEach(b=>{b.setAttribute("aria-label",on?"Pause live stream":"Play live stream");b.querySelector(".ic-play").style.display=on?"none":"";b.querySelector(".ic-pause").style.display=on?"":"none"})}
+function status(t){document.getElementById("pstatus").textContent=t}
+async function toggle(){if(wantPlay&&!audio.paused){wantPlay=false;audio.pause();audio.removeAttribute("src");audio.load();status("");paint();return}
+ wantPlay=true;status("Connecting…");audio.src=STREAM+"?t="+Date.now();try{await audio.play();status("Streaming live")}catch(e){wantPlay=false;status("Couldn’t start — tap again");}paint()}
+audio.addEventListener("playing",()=>{status("Streaming live");paint()});audio.addEventListener("waiting",()=>status("Buffering…"));audio.addEventListener("error",()=>{if(wantPlay){status("Stream unavailable");wantPlay=false;paint()}});
+document.querySelectorAll(".js-play").forEach(b=>b.addEventListener("click",toggle));
+async function song(){try{const r=await fetch("https://cjlo.radioca.st/stats?json=1&_="+Date.now());const j=await r.json();const t=(j.songtitle||"").trim();if(t&&!/^cjlo\b/i.test(t)){document.getElementById("songtitle").textContent=t}}catch(e){}}
+song();setInterval(song,30000);
+renderNow();renderSched();setInterval(()=>{renderNow();renderSched()},60000);
+</script>
+</body>
+</html>
